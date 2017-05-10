@@ -1,3 +1,8 @@
+# Dans le bash, au choix:
+# make all : nettoie le dossier puis compile
+# make project : compile le projet
+# make mrpropre : supprime les *.o
+
 all: clean project
 
 project: main.o
@@ -9,3 +14,6 @@ main.o: main.c main.h
 clean:
 	rm -rf project *.o
 	echo Clean done
+
+mrpropre:
+	rm -rf *.o
