@@ -4,13 +4,17 @@
 #include "SDL/SDL.h"
 #include "image.c"
 
+//25*29
 //Les attributs de l'ecran (640 * 480)
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 const int SCREEN_BPP = 32;
 
+int clicx =0;
+int clicy =0;
+
 //Les surfaces
-SDL_Surface *message = NULL;
+SDL_Surface *plateau = NULL;
 SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
 
@@ -19,44 +23,62 @@ SDL_Event event;
 
 int main( int argc, char* args[] ) {
 
+int quit = 0;
 
-    //initialisation de tout les sous-systemes de sdl
-    if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 ) {
+//initialisation de tout les sous-systemes de sdl
+if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 ) {
+    return 1;
+}
+
+//on met en place l'ecran
+screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
+
+//Si il y a une erreur lors de la mise en place de l'ecran
+if( screen == NULL ) {
+    return 1;
+}
+
+//on met en place la barre caption de la fenetre
+SDL_WM_SetCaption( "HEX, THE GAME", NULL );
+
+//Chargement des images
+plateau = load_image( "plateau.bmp" );
+background = load_image( "background.bmp" );
+
+//Application des surfaces sur l'ecran
+apply_surface( 0, 0, background, screen );
+
+//Application du message sur l'ecran
+apply_surface( 90, 90, plateau, screen );
+
+//mise à jour de l'ecran
+if( SDL_Flip( screen ) == -1 ) {
         return 1;
-    }
+}
 
-    //on met en place l'ecran
-    screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
+while( quit == 0 ) {
+	//Tant qu'il y a un événement à traiter 
+	while( SDL_PollEvent( &event ) ) {
+		switch(event.type) {
+			//Si l'utilisateur clique
+			case SDL_MOUSEBUTTONUP:
+				clicx = event.button.x;
+				clicy = event.button.y;
+				//ajouterpiece(fonctionpos(clix,clicy), p);
+				printf("pos : (%d,%d) !!", clicx, clicy);
+				break;
+			//Si l'utilisateur a cliqué sur le X de la fenêtre
+			case SDL_QUIT:  
+				quit = 1;
+				break; 
+		} 
+	}
+}
 
-    //Si il y a une erreur lors de la mise en place de l'ecran
-    if( screen == NULL ) {
-        return 1;
-    }
+//Liberation des surface
+SDL_FreeSurface( plateau );
+SDL_FreeSurface( background );
 
-    //on met en place la barre caption de la fenetre
-    SDL_WM_SetCaption( "Hello World", NULL );
-
-    //Chargement des images
-    message = load_image( "hello_world.bmp" );
-    background = load_image( "background.bmp" );
-
-    //Application des surfaces sur l'ecran
-    apply_surface( 0, 0, background, screen );
-
-    //Application du message sur l'ecran
-    apply_surface( 180, 140, message, screen );
-
-    //mise à jour de l'ecran
-    if( SDL_Flip( screen ) == -1 ) {
-        return 1;
-    }
-
-    SDL_Delay( 2000 );
-
-    //Liberation des surface
-    SDL_FreeSurface( message );
-    SDL_FreeSurface( background );
-
-    //On quitte sdl
-    SDL_Quit();
+//On quitte sdl
+SDL_Quit();
 }
