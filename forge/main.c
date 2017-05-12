@@ -12,11 +12,17 @@ const int SCREEN_BPP = 32;
 
 int clicx =0;
 int clicy =0;
+const int t=25;
+int posx = 0;
+int posy = 0;
+
+
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
 SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
+SDL_Surface *case0 =NULL;
 
 //La structure d'evenement
 SDL_Event event;
@@ -55,17 +61,23 @@ apply_surface( 90, 90, plateau, screen );
 if( SDL_Flip( screen ) == -1 ) {
         return 1;
 }
-
+//71.49
 while( quit == 0 ) {
 	//Tant qu'il y a un événement à traiter 
 	while( SDL_PollEvent( &event ) ) {
 		switch(event.type) {
 			//Si l'utilisateur clique
 			case SDL_MOUSEBUTTONUP:
-				clicx = event.button.x;
-				clicy = event.button.y;
+				//clicx = event.button.x;
+				//clicy = event.button.y;
 				//ajouterpiece(fonctionpos(clix,clicy), p);
-				printf("pos : (%d,%d) !!", clicx, clicy);
+				//printf("pos : (%d,%d) !!", clicx, clicy);
+				case0 = load_image("rouge.bmp"); 
+				apply_surface(90+71+(t%11)*25+(t/11)*12,90+49+(t/11)*18,case0,screen);
+				if( SDL_Flip( screen ) == -1 ) {
+  				      return 1;
+				}
+//SDL_Flip(screen);
 				break;
 			//Si l'utilisateur a cliqué sur le X de la fenêtre
 			case SDL_QUIT:  
