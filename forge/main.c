@@ -12,7 +12,7 @@ const int SCREEN_BPP = 32;
 
 int clicx =0;
 int clicy =0;
-const int t=25;
+const int t=120;
 int posx = 0;
 int posy = 0;
 
@@ -73,7 +73,7 @@ while( quit == 0 ) {
 				//ajouterpiece(fonctionpos(clix,clicy), p);
 				//printf("pos : (%d,%d) !!", clicx, clicy);
 				case0 = load_image("rouge.bmp"); 
-				apply_surface(90+71+(t%11)*25+(t/11)*12,90+49+(t/11)*18,case0,screen);
+				apply_surface(90+49+(t%11)*26+(t/11)*13,90+57+(t/11)*19,case0,screen);
 				if( SDL_Flip( screen ) == -1 ) {
   				      return 1;
 				}
