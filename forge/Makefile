@@ -8,11 +8,21 @@ all: clean project
 project: main.o
 	gcc -o project main.o `sdl-config --libs`
 
+alloc.o: alloc.c alloc.h
+	gcc -c -Wall -Wextra alloc.c `sdl-config --cflags`
+
+image.o: image.c image.h
+	gcc -c -Wall -Wextra image.c `sdl-config --cflags`
+
+position.o: position.c position.h
+	gcc -c -Wall -Wextra position.c `sdl-config --cflags`
+
+ajouter.o: ajouter.c ajouter.h
+	gcc -c -Wall -Wextra ajouter.c `sdl-config --cflags`
+
+
 main.o: main.c main.h
 	gcc -c -Wall -Wextra main.c `sdl-config --cflags`
-
-#image.o: image.c image.h
-#	gcc -c -Wall -Wextra image.c `sdl-config --cflags`
 
 clean:
 	rm -rf project *.o
