@@ -13,6 +13,9 @@ SDL_Surface *load_image( char* filename ) {
     //Chargement de l'image
     loadedImage = SDL_LoadBMP( filename );
 
+    // Création de la transparence sur l'image
+    SDL_SetColorKey(loadedImage, SDL_SRCCOLORKEY, SDL_MapRGB(loadedImage->format, 0, 255, 0));
+
     //Si l'image est chargée correctement
     if( loadedImage != NULL ) {
         //creation de l'image optimisée
