@@ -66,8 +66,11 @@ if( screen == NULL ) {
 SDL_WM_SetCaption( "HEX, THE GAME", NULL );
 
 //Chargement des images
-plateau = load_image( "plateau.bmp" );
+plateau = load_image( "plateauCopie.bmp" );
 background = load_image( "background.bmp" );
+
+// Création de la transparence sur le pourtour du plateau
+SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0));
 
 //Application des surfaces sur l'ecran
 apply_surface( 0, 0, background, screen );
