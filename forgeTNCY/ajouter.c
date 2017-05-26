@@ -128,981 +128,1225 @@ SDL_Surface *case118 =NULL;
 SDL_Surface *case119 =NULL;
 SDL_Surface *case120 =NULL;
 
-int addcase(int pos, SDL_Surface *plateau, char* joueuractuel) {
+int addcase(int pos, SDL_Surface *screen, char* joueuractuel) {
 
-
+int modif =0;
 
 
 //23,19
 //+27,+0
 //+14, +24
 
+
 if (pos==0 && strcmp(joueuractuel, "rouge") == 0) {
     case0 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case0,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case0,screen); 
+     modif=1;
 } 
 if (pos==0 && strcmp(joueuractuel, "bleu") == 0) {
     case0 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case0,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case0,screen);  
+      modif=1; 
 }
 if (pos==1 && strcmp(joueuractuel, "rouge") == 0) {
     case1 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case1,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case1,screen); 
+     modif=1;
 } 
 if (pos==1 && strcmp(joueuractuel, "bleu") == 0) {
     case1 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case1,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case1,screen);  
+      modif=1; 
 }
 if (pos==2 && strcmp(joueuractuel, "rouge") == 0) {
     case2 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case2,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case2,screen); 
+     modif=1;
 } 
 if (pos==2 && strcmp(joueuractuel, "bleu") == 0) {
     case2 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case2,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case2,screen);  
+      modif=1; 
 }
 if (pos==3 && strcmp(joueuractuel, "rouge") == 0) {
     case3 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case3,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case3,screen); 
+     modif=1;
 } 
 if (pos==3 && strcmp(joueuractuel, "bleu") == 0) {
     case3 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case3,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case3,screen);  
+      modif=1; 
 }
 if (pos==4 && strcmp(joueuractuel, "rouge") == 0) {
     case4 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case4,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case4,screen); 
+     modif=1;
 } 
 if (pos==4 && strcmp(joueuractuel, "bleu") == 0) {
     case4 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case4,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case4,screen);  
+      modif=1; 
 }
 if (pos==5 && strcmp(joueuractuel, "rouge") == 0) {
     case5 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case5,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case5,screen); 
+     modif=1;
 } 
 if (pos==5 && strcmp(joueuractuel, "bleu") == 0) {
     case5 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case5,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case5,screen);  
+      modif=1; 
 }
 if (pos==6 && strcmp(joueuractuel, "rouge") == 0) {
     case6 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case6,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case6,screen); 
+     modif=1;
 } 
 if (pos==6 && strcmp(joueuractuel, "bleu") == 0) {
     case6 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case6,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case6,screen);  
+      modif=1; 
 }
 if (pos==7 && strcmp(joueuractuel, "rouge") == 0) {
     case7 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case7,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case7,screen); 
+     modif=1;
 } 
 if (pos==7 && strcmp(joueuractuel, "bleu") == 0) {
     case7 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case7,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case7,screen);  
+      modif=1; 
 }
 if (pos==8 && strcmp(joueuractuel, "rouge") == 0) {
     case8 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case8,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case8,screen); 
+     modif=1;
 } 
 if (pos==8 && strcmp(joueuractuel, "bleu") == 0) {
     case8 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case8,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case8,screen);  
+      modif=1; 
 }
 if (pos==9 && strcmp(joueuractuel, "rouge") == 0) {
     case9 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case9,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case9,screen); 
+     modif=1;
 } 
 if (pos==9 && strcmp(joueuractuel, "bleu") == 0) {
     case9 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case9,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case9,screen);  
+      modif=1; 
 }
 if (pos==10 && strcmp(joueuractuel, "rouge") == 0) {
     case10 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case10,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case10,screen); 
+     modif=1;
 } 
 if (pos==10 && strcmp(joueuractuel, "bleu") == 0) {
     case10 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case10,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case10,screen);  
+      modif=1; 
 }
 if (pos==11 && strcmp(joueuractuel, "rouge") == 0) {
     case11 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case11,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case11,screen); 
+     modif=1;
 } 
 if (pos==11 && strcmp(joueuractuel, "bleu") == 0) {
     case11 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case11,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case11,screen);  
+      modif=1; 
 }
 if (pos==12 && strcmp(joueuractuel, "rouge") == 0) {
     case12 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case12,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case12,screen); 
+     modif=1;
 } 
 if (pos==12 && strcmp(joueuractuel, "bleu") == 0) {
     case12 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case12,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case12,screen);  
+      modif=1; 
 }
 if (pos==13 && strcmp(joueuractuel, "rouge") == 0) {
     case13 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case13,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case13,screen); 
+     modif=1;
 } 
 if (pos==13 && strcmp(joueuractuel, "bleu") == 0) {
     case13 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case13,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case13,screen);  
+      modif=1; 
 }
 if (pos==14 && strcmp(joueuractuel, "rouge") == 0) {
     case14 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case14,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case14,screen); 
+     modif=1;
 } 
 if (pos==14 && strcmp(joueuractuel, "bleu") == 0) {
     case14 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case14,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case14,screen);  
+      modif=1; 
 }
 if (pos==15 && strcmp(joueuractuel, "rouge") == 0) {
     case15 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case15,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case15,screen); 
+     modif=1;
 } 
 if (pos==15 && strcmp(joueuractuel, "bleu") == 0) {
     case15 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case15,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case15,screen);  
+      modif=1; 
 }
 if (pos==16 && strcmp(joueuractuel, "rouge") == 0) {
     case16 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case16,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case16,screen); 
+     modif=1;
 } 
 if (pos==16 && strcmp(joueuractuel, "bleu") == 0) {
     case16 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case16,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case16,screen);  
+      modif=1; 
 }
 if (pos==17 && strcmp(joueuractuel, "rouge") == 0) {
     case17 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case17,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case17,screen); 
+     modif=1;
 } 
 if (pos==17 && strcmp(joueuractuel, "bleu") == 0) {
     case17 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case17,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case17,screen);  
+      modif=1; 
 }
 if (pos==18 && strcmp(joueuractuel, "rouge") == 0) {
     case18 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case18,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case18,screen); 
+     modif=1;
 } 
 if (pos==18 && strcmp(joueuractuel, "bleu") == 0) {
     case18 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case18,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case18,screen);  
+      modif=1; 
 }
 if (pos==19 && strcmp(joueuractuel, "rouge") == 0) {
     case19 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case19,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case19,screen); 
+     modif=1;
 } 
 if (pos==19 && strcmp(joueuractuel, "bleu") == 0) {
     case19 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case19,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case19,screen);  
+      modif=1; 
 }
 if (pos==20 && strcmp(joueuractuel, "rouge") == 0) {
     case20 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case20,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case20,screen); 
+     modif=1;
 } 
 if (pos==20 && strcmp(joueuractuel, "bleu") == 0) {
     case20 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case20,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case20,screen);  
+      modif=1; 
 }
 if (pos==21 && strcmp(joueuractuel, "rouge") == 0) {
     case21 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case21,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case21,screen); 
+     modif=1;
 } 
 if (pos==21 && strcmp(joueuractuel, "bleu") == 0) {
     case21 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case21,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case21,screen);  
+      modif=1; 
 }
 if (pos==22 && strcmp(joueuractuel, "rouge") == 0) {
     case22 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case22,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case22,screen); 
+     modif=1;
 } 
 if (pos==22 && strcmp(joueuractuel, "bleu") == 0) {
     case22 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case22,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case22,screen);  
+      modif=1; 
 }
 if (pos==23 && strcmp(joueuractuel, "rouge") == 0) {
     case23 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case23,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case23,screen); 
+     modif=1;
 } 
 if (pos==23 && strcmp(joueuractuel, "bleu") == 0) {
     case23 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case23,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case23,screen);  
+      modif=1; 
 }
 if (pos==24 && strcmp(joueuractuel, "rouge") == 0) {
     case24 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case24,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case24,screen); 
+     modif=1;
 } 
 if (pos==24 && strcmp(joueuractuel, "bleu") == 0) {
     case24 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case24,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case24,screen);  
+      modif=1; 
 }
 if (pos==25 && strcmp(joueuractuel, "rouge") == 0) {
     case25 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case25,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case25,screen); 
+     modif=1;
 } 
 if (pos==25 && strcmp(joueuractuel, "bleu") == 0) {
     case25 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case25,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case25,screen);  
+      modif=1; 
 }
 if (pos==26 && strcmp(joueuractuel, "rouge") == 0) {
     case26 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case26,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case26,screen); 
+     modif=1;
 } 
 if (pos==26 && strcmp(joueuractuel, "bleu") == 0) {
     case26 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case26,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case26,screen);  
+      modif=1; 
 }
 if (pos==27 && strcmp(joueuractuel, "rouge") == 0) {
     case27 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case27,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case27,screen); 
+     modif=1;
 } 
 if (pos==27 && strcmp(joueuractuel, "bleu") == 0) {
     case27 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case27,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case27,screen);  
+      modif=1; 
 }
 if (pos==28 && strcmp(joueuractuel, "rouge") == 0) {
     case28 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case28,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case28,screen); 
+     modif=1;
 } 
 if (pos==28 && strcmp(joueuractuel, "bleu") == 0) {
     case28 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case28,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case28,screen);  
+      modif=1; 
 }
 if (pos==29 && strcmp(joueuractuel, "rouge") == 0) {
     case29 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case29,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case29,screen); 
+     modif=1;
 } 
 if (pos==29 && strcmp(joueuractuel, "bleu") == 0) {
     case29 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case29,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case29,screen);  
+      modif=1; 
 }
 if (pos==30 && strcmp(joueuractuel, "rouge") == 0) {
     case30 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case30,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case30,screen); 
+     modif=1;
 } 
 if (pos==30 && strcmp(joueuractuel, "bleu") == 0) {
     case30 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case30,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case30,screen);  
+      modif=1; 
 }
 if (pos==31 && strcmp(joueuractuel, "rouge") == 0) {
     case31 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case31,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case31,screen); 
+     modif=1;
 } 
 if (pos==31 && strcmp(joueuractuel, "bleu") == 0) {
     case31 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case31,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case31,screen);  
+      modif=1; 
 }
 if (pos==32 && strcmp(joueuractuel, "rouge") == 0) {
     case32 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case32,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case32,screen); 
+     modif=1;
 } 
 if (pos==32 && strcmp(joueuractuel, "bleu") == 0) {
     case32 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case32,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case32,screen);  
+      modif=1; 
 }
 if (pos==33 && strcmp(joueuractuel, "rouge") == 0) {
     case33 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case33,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case33,screen); 
+     modif=1;
 } 
 if (pos==33 && strcmp(joueuractuel, "bleu") == 0) {
     case33 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case33,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case33,screen);  
+      modif=1; 
 }
 if (pos==34 && strcmp(joueuractuel, "rouge") == 0) {
     case34 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case34,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case34,screen); 
+     modif=1;
 } 
 if (pos==34 && strcmp(joueuractuel, "bleu") == 0) {
     case34 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case34,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case34,screen);  
+      modif=1; 
 }
 if (pos==35 && strcmp(joueuractuel, "rouge") == 0) {
     case35 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case35,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case35,screen); 
+     modif=1;
 } 
 if (pos==35 && strcmp(joueuractuel, "bleu") == 0) {
     case35 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case35,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case35,screen);  
+      modif=1; 
 }
 if (pos==36 && strcmp(joueuractuel, "rouge") == 0) {
     case36 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case36,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case36,screen); 
+     modif=1;
 } 
 if (pos==36 && strcmp(joueuractuel, "bleu") == 0) {
     case36 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case36,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case36,screen);  
+      modif=1; 
 }
 if (pos==37 && strcmp(joueuractuel, "rouge") == 0) {
     case37 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case37,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case37,screen); 
+     modif=1;
 } 
 if (pos==37 && strcmp(joueuractuel, "bleu") == 0) {
     case37 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case37,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case37,screen);  
+      modif=1; 
 }
 if (pos==38 && strcmp(joueuractuel, "rouge") == 0) {
     case38 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case38,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case38,screen); 
+     modif=1;
 } 
 if (pos==38 && strcmp(joueuractuel, "bleu") == 0) {
     case38 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case38,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case38,screen);  
+      modif=1; 
 }
 if (pos==39 && strcmp(joueuractuel, "rouge") == 0) {
     case39 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case39,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case39,screen); 
+     modif=1;
 } 
 if (pos==39 && strcmp(joueuractuel, "bleu") == 0) {
     case39 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case39,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case39,screen);  
+      modif=1; 
 }
 if (pos==40 && strcmp(joueuractuel, "rouge") == 0) {
     case40 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case40,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case40,screen); 
+     modif=1;
 } 
 if (pos==40 && strcmp(joueuractuel, "bleu") == 0) {
     case40 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case40,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case40,screen);  
+      modif=1; 
 }
 if (pos==41 && strcmp(joueuractuel, "rouge") == 0) {
     case41 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case41,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case41,screen); 
+     modif=1;
 } 
 if (pos==41 && strcmp(joueuractuel, "bleu") == 0) {
     case41 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case41,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case41,screen);  
+      modif=1; 
 }
 if (pos==42 && strcmp(joueuractuel, "rouge") == 0) {
     case42 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case42,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case42,screen); 
+     modif=1;
 } 
 if (pos==42 && strcmp(joueuractuel, "bleu") == 0) {
     case42 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case42,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case42,screen);  
+      modif=1; 
 }
 if (pos==43 && strcmp(joueuractuel, "rouge") == 0) {
     case43 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case43,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case43,screen); 
+     modif=1;
 } 
 if (pos==43 && strcmp(joueuractuel, "bleu") == 0) {
     case43 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case43,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case43,screen);  
+      modif=1; 
 }
 if (pos==44 && strcmp(joueuractuel, "rouge") == 0) {
     case44 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case44,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case44,screen); 
+     modif=1;
 } 
 if (pos==44 && strcmp(joueuractuel, "bleu") == 0) {
     case44 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case44,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case44,screen);  
+      modif=1; 
 }
 if (pos==45 && strcmp(joueuractuel, "rouge") == 0) {
     case45 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case45,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case45,screen); 
+     modif=1;
 } 
 if (pos==45 && strcmp(joueuractuel, "bleu") == 0) {
     case45 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case45,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case45,screen);  
+      modif=1; 
 }
 if (pos==46 && strcmp(joueuractuel, "rouge") == 0) {
     case46 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case46,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case46,screen); 
+     modif=1;
 } 
 if (pos==46 && strcmp(joueuractuel, "bleu") == 0) {
     case46 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case46,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case46,screen);  
+      modif=1; 
 }
 if (pos==47 && strcmp(joueuractuel, "rouge") == 0) {
     case47 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case47,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case47,screen); 
+     modif=1;
 } 
 if (pos==47 && strcmp(joueuractuel, "bleu") == 0) {
     case47 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case47,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case47,screen);  
+      modif=1; 
 }
 if (pos==48 && strcmp(joueuractuel, "rouge") == 0) {
     case48 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case48,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case48,screen); 
+     modif=1;
 } 
 if (pos==48 && strcmp(joueuractuel, "bleu") == 0) {
     case48 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case48,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case48,screen);  
+      modif=1; 
 }
 if (pos==49 && strcmp(joueuractuel, "rouge") == 0) {
     case49 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case49,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case49,screen); 
+     modif=1;
 } 
 if (pos==49 && strcmp(joueuractuel, "bleu") == 0) {
     case49 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case49,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case49,screen);  
+      modif=1; 
 }
 if (pos==50 && strcmp(joueuractuel, "rouge") == 0) {
     case50 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case50,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case50,screen); 
+     modif=1;
 } 
 if (pos==50 && strcmp(joueuractuel, "bleu") == 0) {
     case50 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case50,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case50,screen);  
+      modif=1; 
 }
 if (pos==51 && strcmp(joueuractuel, "rouge") == 0) {
     case51 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case51,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case51,screen); 
+     modif=1;
 } 
 if (pos==51 && strcmp(joueuractuel, "bleu") == 0) {
     case51 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case51,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case51,screen);  
+      modif=1; 
 }
 if (pos==52 && strcmp(joueuractuel, "rouge") == 0) {
     case52 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case52,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case52,screen); 
+     modif=1;
 } 
 if (pos==52 && strcmp(joueuractuel, "bleu") == 0) {
     case52 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case52,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case52,screen);  
+      modif=1; 
 }
 if (pos==53 && strcmp(joueuractuel, "rouge") == 0) {
     case53 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case53,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case53,screen); 
+     modif=1;
 } 
 if (pos==53 && strcmp(joueuractuel, "bleu") == 0) {
     case53 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case53,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case53,screen);  
+      modif=1; 
 }
 if (pos==54 && strcmp(joueuractuel, "rouge") == 0) {
     case54 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case54,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case54,screen); 
+     modif=1;
 } 
 if (pos==54 && strcmp(joueuractuel, "bleu") == 0) {
     case54 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case54,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case54,screen);  
+      modif=1; 
 }
 if (pos==55 && strcmp(joueuractuel, "rouge") == 0) {
     case55 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case55,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case55,screen); 
+     modif=1;
 } 
 if (pos==55 && strcmp(joueuractuel, "bleu") == 0) {
     case55 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case55,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case55,screen);  
+      modif=1; 
 }
 if (pos==56 && strcmp(joueuractuel, "rouge") == 0) {
     case56 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case56,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case56,screen); 
+     modif=1;
 } 
 if (pos==56 && strcmp(joueuractuel, "bleu") == 0) {
     case56 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case56,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case56,screen);  
+      modif=1; 
 }
 if (pos==57 && strcmp(joueuractuel, "rouge") == 0) {
     case57 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case57,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case57,screen); 
+     modif=1;
 } 
 if (pos==57 && strcmp(joueuractuel, "bleu") == 0) {
     case57 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case57,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case57,screen);  
+      modif=1; 
 }
 if (pos==58 && strcmp(joueuractuel, "rouge") == 0) {
     case58 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case58,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case58,screen); 
+     modif=1;
 } 
 if (pos==58 && strcmp(joueuractuel, "bleu") == 0) {
     case58 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case58,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case58,screen);  
+      modif=1; 
 }
 if (pos==59 && strcmp(joueuractuel, "rouge") == 0) {
     case59 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case59,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case59,screen); 
+     modif=1;
 } 
 if (pos==59 && strcmp(joueuractuel, "bleu") == 0) {
     case59 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case59,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case59,screen);  
+      modif=1; 
 }
 if (pos==60 && strcmp(joueuractuel, "rouge") == 0) {
     case60 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case60,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case60,screen); 
+     modif=1;
 } 
 if (pos==60 && strcmp(joueuractuel, "bleu") == 0) {
     case60 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case60,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case60,screen);  
+      modif=1; 
 }
 if (pos==61 && strcmp(joueuractuel, "rouge") == 0) {
     case61 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case61,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case61,screen); 
+     modif=1;
 } 
 if (pos==61 && strcmp(joueuractuel, "bleu") == 0) {
     case61 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case61,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case61,screen);  
+      modif=1; 
 }
 if (pos==62 && strcmp(joueuractuel, "rouge") == 0) {
     case62 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case62,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case62,screen); 
+     modif=1;
 } 
 if (pos==62 && strcmp(joueuractuel, "bleu") == 0) {
     case62 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case62,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case62,screen);  
+      modif=1; 
 }
 if (pos==63 && strcmp(joueuractuel, "rouge") == 0) {
     case63 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case63,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case63,screen); 
+     modif=1;
 } 
 if (pos==63 && strcmp(joueuractuel, "bleu") == 0) {
     case63 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case63,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case63,screen);  
+      modif=1; 
 }
 if (pos==64 && strcmp(joueuractuel, "rouge") == 0) {
     case64 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case64,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case64,screen); 
+     modif=1;
 } 
 if (pos==64 && strcmp(joueuractuel, "bleu") == 0) {
     case64 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case64,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case64,screen);  
+      modif=1; 
 }
 if (pos==65 && strcmp(joueuractuel, "rouge") == 0) {
     case65 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case65,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case65,screen); 
+     modif=1;
 } 
 if (pos==65 && strcmp(joueuractuel, "bleu") == 0) {
     case65 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case65,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case65,screen);  
+      modif=1; 
 }
 if (pos==66 && strcmp(joueuractuel, "rouge") == 0) {
     case66 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case66,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case66,screen); 
+     modif=1;
 } 
 if (pos==66 && strcmp(joueuractuel, "bleu") == 0) {
     case66 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case66,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case66,screen);  
+      modif=1; 
 }
 if (pos==67 && strcmp(joueuractuel, "rouge") == 0) {
     case67 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case67,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case67,screen); 
+     modif=1;
 } 
 if (pos==67 && strcmp(joueuractuel, "bleu") == 0) {
     case67 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case67,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case67,screen);  
+      modif=1; 
 }
 if (pos==68 && strcmp(joueuractuel, "rouge") == 0) {
     case68 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case68,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case68,screen); 
+     modif=1;
 } 
 if (pos==68 && strcmp(joueuractuel, "bleu") == 0) {
     case68 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case68,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case68,screen);  
+      modif=1; 
 }
 if (pos==69 && strcmp(joueuractuel, "rouge") == 0) {
     case69 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case69,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case69,screen); 
+     modif=1;
 } 
 if (pos==69 && strcmp(joueuractuel, "bleu") == 0) {
     case69 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case69,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case69,screen);  
+      modif=1; 
 }
 if (pos==70 && strcmp(joueuractuel, "rouge") == 0) {
     case70 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case70,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case70,screen); 
+     modif=1;
 } 
 if (pos==70 && strcmp(joueuractuel, "bleu") == 0) {
     case70 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case70,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case70,screen);  
+      modif=1; 
 }
 if (pos==71 && strcmp(joueuractuel, "rouge") == 0) {
     case71 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case71,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case71,screen); 
+     modif=1;
 } 
 if (pos==71 && strcmp(joueuractuel, "bleu") == 0) {
     case71 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case71,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case71,screen);  
+      modif=1; 
 }
 if (pos==72 && strcmp(joueuractuel, "rouge") == 0) {
     case72 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case72,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case72,screen); 
+     modif=1;
 } 
 if (pos==72 && strcmp(joueuractuel, "bleu") == 0) {
     case72 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case72,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case72,screen);  
+      modif=1; 
 }
 if (pos==73 && strcmp(joueuractuel, "rouge") == 0) {
     case73 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case73,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case73,screen); 
+     modif=1;
 } 
 if (pos==73 && strcmp(joueuractuel, "bleu") == 0) {
     case73 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case73,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case73,screen);  
+      modif=1; 
 }
 if (pos==74 && strcmp(joueuractuel, "rouge") == 0) {
     case74 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case74,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case74,screen); 
+     modif=1;
 } 
 if (pos==74 && strcmp(joueuractuel, "bleu") == 0) {
     case74 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case74,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case74,screen);  
+      modif=1; 
 }
 if (pos==75 && strcmp(joueuractuel, "rouge") == 0) {
     case75 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case75,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case75,screen); 
+     modif=1;
 } 
 if (pos==75 && strcmp(joueuractuel, "bleu") == 0) {
     case75 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case75,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case75,screen);  
+      modif=1; 
 }
 if (pos==76 && strcmp(joueuractuel, "rouge") == 0) {
     case76 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case76,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case76,screen); 
+     modif=1;
 } 
 if (pos==76 && strcmp(joueuractuel, "bleu") == 0) {
     case76 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case76,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case76,screen);  
+      modif=1; 
 }
 if (pos==77 && strcmp(joueuractuel, "rouge") == 0) {
     case77 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case77,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case77,screen); 
+     modif=1;
 } 
 if (pos==77 && strcmp(joueuractuel, "bleu") == 0) {
     case77 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case77,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case77,screen);  
+      modif=1; 
 }
 if (pos==78 && strcmp(joueuractuel, "rouge") == 0) {
     case78 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case78,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case78,screen); 
+     modif=1;
 } 
 if (pos==78 && strcmp(joueuractuel, "bleu") == 0) {
     case78 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case78,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case78,screen);  
+      modif=1; 
 }
 if (pos==79 && strcmp(joueuractuel, "rouge") == 0) {
     case79 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case79,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case79,screen); 
+     modif=1;
 } 
 if (pos==79 && strcmp(joueuractuel, "bleu") == 0) {
     case79 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case79,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case79,screen);  
+      modif=1; 
 }
 if (pos==80 && strcmp(joueuractuel, "rouge") == 0) {
     case80 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case80,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case80,screen); 
+     modif=1;
 } 
 if (pos==80 && strcmp(joueuractuel, "bleu") == 0) {
     case80 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case80,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case80,screen);  
+      modif=1; 
 }
 if (pos==81 && strcmp(joueuractuel, "rouge") == 0) {
     case81 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case81,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case81,screen); 
+     modif=1;
 } 
 if (pos==81 && strcmp(joueuractuel, "bleu") == 0) {
     case81 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case81,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case81,screen);  
+      modif=1; 
 }
 if (pos==82 && strcmp(joueuractuel, "rouge") == 0) {
     case82 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case82,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case82,screen); 
+     modif=1;
 } 
 if (pos==82 && strcmp(joueuractuel, "bleu") == 0) {
     case82 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case82,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case82,screen);  
+      modif=1; 
 }
 if (pos==83 && strcmp(joueuractuel, "rouge") == 0) {
     case83 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case83,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case83,screen); 
+     modif=1;
 } 
 if (pos==83 && strcmp(joueuractuel, "bleu") == 0) {
     case83 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case83,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case83,screen);  
+      modif=1; 
 }
 if (pos==84 && strcmp(joueuractuel, "rouge") == 0) {
     case84 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case84,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case84,screen); 
+     modif=1;
 } 
 if (pos==84 && strcmp(joueuractuel, "bleu") == 0) {
     case84 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case84,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case84,screen);  
+      modif=1; 
 }
 if (pos==85 && strcmp(joueuractuel, "rouge") == 0) {
     case85 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case85,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case85,screen); 
+     modif=1;
 } 
 if (pos==85 && strcmp(joueuractuel, "bleu") == 0) {
     case85 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case85,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case85,screen);  
+      modif=1; 
 }
 if (pos==86 && strcmp(joueuractuel, "rouge") == 0) {
     case86 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case86,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case86,screen); 
+     modif=1;
 } 
 if (pos==86 && strcmp(joueuractuel, "bleu") == 0) {
     case86 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case86,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case86,screen);  
+      modif=1; 
 }
 if (pos==87 && strcmp(joueuractuel, "rouge") == 0) {
     case87 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case87,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case87,screen); 
+     modif=1;
 } 
 if (pos==87 && strcmp(joueuractuel, "bleu") == 0) {
     case87 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case87,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case87,screen);  
+      modif=1; 
 }
 if (pos==88 && strcmp(joueuractuel, "rouge") == 0) {
     case88 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case88,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case88,screen); 
+     modif=1;
 } 
 if (pos==88 && strcmp(joueuractuel, "bleu") == 0) {
     case88 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case88,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case88,screen);  
+      modif=1; 
 }
 if (pos==89 && strcmp(joueuractuel, "rouge") == 0) {
     case89 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case89,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case89,screen); 
+     modif=1;
 } 
 if (pos==89 && strcmp(joueuractuel, "bleu") == 0) {
     case89 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case89,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case89,screen);  
+      modif=1; 
 }
 if (pos==90 && strcmp(joueuractuel, "rouge") == 0) {
     case90 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case90,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case90,screen); 
+     modif=1;
 } 
 if (pos==90 && strcmp(joueuractuel, "bleu") == 0) {
     case90 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case90,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case90,screen);  
+      modif=1; 
 }
 if (pos==91 && strcmp(joueuractuel, "rouge") == 0) {
     case91 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case91,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case91,screen); 
+     modif=1;
 } 
 if (pos==91 && strcmp(joueuractuel, "bleu") == 0) {
     case91 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case91,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case91,screen);  
+      modif=1; 
 }
 if (pos==92 && strcmp(joueuractuel, "rouge") == 0) {
     case92 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case92,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case92,screen); 
+     modif=1;
 } 
 if (pos==92 && strcmp(joueuractuel, "bleu") == 0) {
     case92 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case92,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case92,screen);  
+      modif=1; 
 }
 if (pos==93 && strcmp(joueuractuel, "rouge") == 0) {
     case93 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case93,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case93,screen); 
+     modif=1;
 } 
 if (pos==93 && strcmp(joueuractuel, "bleu") == 0) {
     case93 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case93,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case93,screen);  
+      modif=1; 
 }
 if (pos==94 && strcmp(joueuractuel, "rouge") == 0) {
     case94 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case94,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case94,screen); 
+     modif=1;
 } 
 if (pos==94 && strcmp(joueuractuel, "bleu") == 0) {
     case94 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case94,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case94,screen);  
+      modif=1; 
 }
 if (pos==95 && strcmp(joueuractuel, "rouge") == 0) {
     case95 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case95,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case95,screen); 
+     modif=1;
 } 
 if (pos==95 && strcmp(joueuractuel, "bleu") == 0) {
     case95 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case95,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case95,screen);  
+      modif=1; 
 }
 if (pos==96 && strcmp(joueuractuel, "rouge") == 0) {
     case96 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case96,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case96,screen); 
+     modif=1;
 } 
 if (pos==96 && strcmp(joueuractuel, "bleu") == 0) {
     case96 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case96,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case96,screen);  
+      modif=1; 
 }
 if (pos==97 && strcmp(joueuractuel, "rouge") == 0) {
     case97 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case97,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case97,screen); 
+     modif=1;
 } 
 if (pos==97 && strcmp(joueuractuel, "bleu") == 0) {
     case97 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case97,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case97,screen);  
+      modif=1; 
 }
 if (pos==98 && strcmp(joueuractuel, "rouge") == 0) {
     case98 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case98,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case98,screen); 
+     modif=1;
 } 
 if (pos==98 && strcmp(joueuractuel, "bleu") == 0) {
     case98 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case98,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case98,screen);  
+      modif=1; 
 }
 if (pos==99 && strcmp(joueuractuel, "rouge") == 0) {
     case99 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case99,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case99,screen); 
+     modif=1;
 } 
 if (pos==99 && strcmp(joueuractuel, "bleu") == 0) {
     case99 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case99,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case99,screen);  
+      modif=1; 
 }
 if (pos==100 && strcmp(joueuractuel, "rouge") == 0) {
     case100 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case100,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case100,screen); 
+     modif=1;
 } 
 if (pos==100 && strcmp(joueuractuel, "bleu") == 0) {
     case100 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case100,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case100,screen);  
+      modif=1; 
 }
 if (pos==101 && strcmp(joueuractuel, "rouge") == 0) {
     case101 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case101,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case101,screen); 
+     modif=1;
 } 
 if (pos==101 && strcmp(joueuractuel, "bleu") == 0) {
     case101 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case101,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case101,screen);  
+      modif=1; 
 }
 if (pos==102 && strcmp(joueuractuel, "rouge") == 0) {
     case102 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case102,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case102,screen); 
+     modif=1;
 } 
 if (pos==102 && strcmp(joueuractuel, "bleu") == 0) {
     case102 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case102,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case102,screen);  
+      modif=1; 
 }
 if (pos==103 && strcmp(joueuractuel, "rouge") == 0) {
     case103 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case103,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case103,screen); 
+     modif=1;
 } 
 if (pos==103 && strcmp(joueuractuel, "bleu") == 0) {
     case103 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case103,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case103,screen);  
+      modif=1; 
 }
 if (pos==104 && strcmp(joueuractuel, "rouge") == 0) {
     case104 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case104,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case104,screen); 
+     modif=1;
 } 
 if (pos==104 && strcmp(joueuractuel, "bleu") == 0) {
     case104 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case104,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case104,screen);  
+      modif=1; 
 }
 if (pos==105 && strcmp(joueuractuel, "rouge") == 0) {
     case105 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case105,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case105,screen); 
+     modif=1;
 } 
 if (pos==105 && strcmp(joueuractuel, "bleu") == 0) {
     case105 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case105,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case105,screen);  
+      modif=1; 
 }
 if (pos==106 && strcmp(joueuractuel, "rouge") == 0) {
     case106 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case106,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case106,screen); 
+     modif=1;
 } 
 if (pos==106 && strcmp(joueuractuel, "bleu") == 0) {
     case106 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case106,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case106,screen);  
+      modif=1; 
 }
 if (pos==107 && strcmp(joueuractuel, "rouge") == 0) {
     case107 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case107,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case107,screen); 
+     modif=1;
 } 
 if (pos==107 && strcmp(joueuractuel, "bleu") == 0) {
     case107 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case107,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case107,screen);  
+      modif=1; 
 }
 if (pos==108 && strcmp(joueuractuel, "rouge") == 0) {
     case108 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case108,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case108,screen); 
+     modif=1;
 } 
 if (pos==108 && strcmp(joueuractuel, "bleu") == 0) {
     case108 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case108,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case108,screen);  
+      modif=1; 
 }
 if (pos==109 && strcmp(joueuractuel, "rouge") == 0) {
     case109 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case109,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case109,screen); 
+     modif=1;
 } 
 if (pos==109 && strcmp(joueuractuel, "bleu") == 0) {
     case109 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case109,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case109,screen);  
+      modif=1; 
 }
 if (pos==110 && strcmp(joueuractuel, "rouge") == 0) {
     case110 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case110,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case110,screen); 
+     modif=1;
 } 
 if (pos==110 && strcmp(joueuractuel, "bleu") == 0) {
     case110 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case110,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case110,screen);  
+      modif=1; 
 }
 if (pos==111 && strcmp(joueuractuel, "rouge") == 0) {
     case111 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case111,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case111,screen); 
+     modif=1;
 } 
 if (pos==111 && strcmp(joueuractuel, "bleu") == 0) {
     case111 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case111,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case111,screen);  
+      modif=1; 
 }
 if (pos==112 && strcmp(joueuractuel, "rouge") == 0) {
     case112 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case112,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case112,screen); 
+     modif=1;
 } 
 if (pos==112 && strcmp(joueuractuel, "bleu") == 0) {
     case112 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case112,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case112,screen);  
+      modif=1; 
 }
 if (pos==113 && strcmp(joueuractuel, "rouge") == 0) {
     case113 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case113,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case113,screen); 
+     modif=1;
 } 
 if (pos==113 && strcmp(joueuractuel, "bleu") == 0) {
     case113 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case113,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case113,screen);  
+      modif=1; 
 }
 if (pos==114 && strcmp(joueuractuel, "rouge") == 0) {
     case114 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case114,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case114,screen); 
+     modif=1;
 } 
 if (pos==114 && strcmp(joueuractuel, "bleu") == 0) {
     case114 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case114,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case114,screen);  
+      modif=1; 
 }
 if (pos==115 && strcmp(joueuractuel, "rouge") == 0) {
     case115 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case115,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case115,screen); 
+     modif=1;
 } 
 if (pos==115 && strcmp(joueuractuel, "bleu") == 0) {
     case115 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case115,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case115,screen);  
+      modif=1; 
 }
 if (pos==116 && strcmp(joueuractuel, "rouge") == 0) {
     case116 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case116,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case116,screen); 
+     modif=1;
 } 
 if (pos==116 && strcmp(joueuractuel, "bleu") == 0) {
     case116 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case116,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case116,screen);  
+      modif=1; 
 }
 if (pos==117 && strcmp(joueuractuel, "rouge") == 0) {
     case117 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case117,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case117,screen); 
+     modif=1;
 } 
 if (pos==117 && strcmp(joueuractuel, "bleu") == 0) {
     case117 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case117,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case117,screen);  
+      modif=1; 
 }
 if (pos==118 && strcmp(joueuractuel, "rouge") == 0) {
     case118 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case118,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case118,screen); 
+     modif=1;
 } 
 if (pos==118 && strcmp(joueuractuel, "bleu") == 0) {
     case118 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case118,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case118,screen);  
+      modif=1; 
 }
 if (pos==119 && strcmp(joueuractuel, "rouge") == 0) {
     case119 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case119,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case119,screen); 
+     modif=1;
 } 
 if (pos==119 && strcmp(joueuractuel, "bleu") == 0) {
     case119 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case119,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case119,screen);  
+      modif=1; 
 }
 if (pos==120 && strcmp(joueuractuel, "rouge") == 0) {
     case120 = load_image("rouge.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case120,plateau);
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case120,screen); 
+     modif=1;
 } 
 if (pos==120 && strcmp(joueuractuel, "bleu") == 0) {
     case120 = load_image("bleu.bmp"); 
-    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case120,plateau); 
+    apply_surface(90+49+(pos%11)*26+(pos/11)*13,90+57+(pos/11)*19,case120,screen);  
+      modif=1; 
 }
+return modif;
 }
