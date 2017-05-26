@@ -23,6 +23,7 @@ int modif =0;
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
+SDL_Surface *plateauFond = NULL;
 SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
 
@@ -68,15 +69,25 @@ SDL_WM_SetCaption( "HEX, THE GAME", NULL );
 
 //Chargement des images
 plateau = load_image( "plateau.bmp" );
+plateauFond = load_image( "plateauFond.bmp" );
 background = load_image( "background.bmp" );
 
 // Création de la transparence sur le pourtour du plateau
 SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0));
 
+// Création de la transparence sur le plateau
+SDL_SetColorKey(plateauFond, SDL_SRCCOLORKEY, SDL_MapRGB(plateauFond->format, 0, 255, 0));
+
+// Fondu entre les deux surfaces (transparence), full opaque (max) = 255
+SDL_SetAlpha(plateauFond, SDL_SRCALPHA, 100);
+
 //Application des surfaces sur l'ecran
 apply_surface( 0, 0, background, screen );
 
-//Application du message sur l'ecran
+//Application des surfaces sur l'ecran
+apply_surface( 90, 90, plateauFond, screen );
+
+//Application des surfaces sur l'ecran
 apply_surface( 90, 90, plateau, screen );
 
 //mise à jour de l'ecran
