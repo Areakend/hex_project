@@ -3,6 +3,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "image.h"
+#include "ajouter.h"
 #include <string.h>
 
 //Les surfaces des hexagones

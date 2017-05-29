@@ -1,6 +1,8 @@
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
+int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile);
+
 typedef struct{
   char* val;
 } Case;
@@ -18,4 +20,4 @@ void recBleu();
 int finPartie();
 int regledugateau();
 
-#endif // projet.h
+#endif

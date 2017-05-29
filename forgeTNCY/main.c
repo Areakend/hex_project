@@ -7,7 +7,7 @@
 #include "position.c"
 #include "alloc.c"
 #include "ajouter.c"
-#include "structure.c"
+#include "IAsimple.c"
 
 //25*29
 //Les attributs de l'ecran (640 * 480)
@@ -21,6 +21,7 @@ int posx = 0;
 int posy = 0;
 int modif =0;
 int p[120] = { 0 };
+int pile[120] = { 0 };
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
@@ -84,23 +85,50 @@ apply_surface( 90, 90, plateau, screen );
 if( SDL_Flip( screen ) == -1 ) {
         return 1;
 }
+//modif=IAS(p, pile, screen, joueuractuel); //IA
+//SDL_Flip( screen ); //IA
+//modif =0; //IA
 
 while( quit == 0 ) {
 	//Tant qu'il y a un événement à traiter 
 	while( SDL_PollEvent( &event ) ) {
 		switch(event.type) {
+
 			//Si l'utilisateur clique
 			case SDL_MOUSEBUTTONUP:
 				clicx = event.button.x;
 				clicy = event.button.y;
-				modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen);
+				if (joueuractuel = "bleu") {
+					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+				}
 				if (modif ==1) {
 					joueuractuel = changeplayer(joueuractuel);
 				}
 				if( SDL_Flip( screen ) == -1 ) {
-  				      return 1;
+  					     return 1;
 				}
+	
+				if (joueuractuel = "rouge") {
+					modif=IAS(p, pile, screen, joueuractuel);
+				}
+				if (modif ==1) {
+					joueuractuel = changeplayer(joueuractuel);
+				}
+				SDL_Flip( screen );
+				modif=0;
 				break;
+
+
+			//Clique sur espace
+			//case SDL_KEYDOWN:
+			//	switch(event.key.keysym.sym) {
+			//		case SDLK_SPACE:
+
+
+			//			break;
+			//	}
+			//	break;
+
 			//Si l'utilisateur a cliqué sur le X de la fenêtre
 			case SDL_QUIT:  
 				quit = 1;
@@ -108,7 +136,6 @@ while( quit == 0 ) {
 		} 
 	}
 }
-
 //Liberation des surface
 SDL_FreeSurface( plateau );
 SDL_FreeSurface( background );

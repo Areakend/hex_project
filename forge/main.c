@@ -19,6 +19,7 @@ int clicy =0;
 const int t=120;
 int posx = 0;
 int posy = 0;
+int modif =0;
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
@@ -66,7 +67,7 @@ if( screen == NULL ) {
 SDL_WM_SetCaption( "HEX, THE GAME", NULL );
 
 //Chargement des images
-plateau = load_image( "plateauCopie.bmp" );
+plateau = load_image( "plateau.bmp" );
 background = load_image( "background.bmp" );
 
 // Création de la transparence sur le pourtour du plateau
@@ -75,7 +76,7 @@ SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0)
 //Application des surfaces sur l'ecran
 apply_surface( 0, 0, background, screen );
 
-//Application du message sur l'ecran
+//Application des surfaces sur l'ecran
 apply_surface( 90, 90, plateau, screen );
 
 //mise à jour de l'ecran
@@ -98,8 +99,10 @@ while( quit == 0 ) {
 				//printf("fct pos : case %d :) ", fctpos(clicx,clicy, pixel));
 				//case0 = load_image("rouge.bmp"); 
 				//apply_surface(90+49+(t%11)*26+(t/11)*13,90+57+(t/11)*19,case0,screen);
-				addcase(fctpos(clicx,clicy, pixel), screen, joueuractuel);
-				joueuractuel = changeplayer(joueuractuel);
+				modif = addcase(fctpos(clicx,clicy, pixel), screen, joueuractuel);
+				if (modif ==1) {
+					joueuractuel = changeplayer(joueuractuel);
+				}
 				if( SDL_Flip( screen ) == -1 ) {
   				      return 1;
 				}
@@ -120,4 +123,5 @@ SDL_FreeSurface( background );
 //free_data(pixel, 121, 432);
 //On quitte sdl
 SDL_Quit();
+return 0;
 }
