@@ -57,7 +57,6 @@ int main() {
 	SDL_BlitSurface(rectangle, NULL, screen, &position); // Blittage des deux surfaces.
 	 
 	SDL_Flip(screen);
-	pause(); // Manière de mettre en pause le programme pour voir la fenêtre
 
 
 	SDL_FreeSurface(rectangle); // Libère l'espace alloué à la variable rectangle
@@ -67,21 +66,4 @@ int main() {
 	SDL_Quit(); // Fermeture de SDL et libération de l'espace alloué à screen
 	printf("Programme terminé correctement.\n");
 	return EXIT_SUCCESS;
-}
-
-
-
-void pause() {
-    int continuer = 1;
-    SDL_Event event;
- 
-    while (continuer)
-    {
-        SDL_WaitEvent(&event);
-        switch(event.type)
-        {
-            case SDL_QUIT:
-                continuer = 0;
-        }
-    }
 }

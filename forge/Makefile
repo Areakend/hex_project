@@ -3,16 +3,19 @@
 # make project : compile le projet
 # make mrpropre : supprime les *.o
 
+
+# Variable contenant les *.c
+CFILES = main.c alloc.c image.c position.c ajouter.c
+# Variable contenant les *.h
+HFILES = main.h alloc.h image.h position.h ajouter.h 
+
 all: clean project
 
-project: main.o
+project: files
 	gcc -o project main.o `sdl-config --libs`
 
-main.o: main.c main.h
-	gcc -c -Wall -Wextra main.c `sdl-config --cflags`
-
-#image.o: image.c image.h
-#	gcc -c -Wall -Wextra image.c `sdl-config --cflags`
+files: $(CFILES) $(HFILES)
+	gcc -c -Wall -Wextra $(CFILES) `sdl-config --cflags`
 
 clean:
 	rm -rf project *.o
