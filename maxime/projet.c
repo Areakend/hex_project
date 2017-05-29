@@ -354,12 +354,15 @@ int finPartie(Plateau *p,char* j) { // retourne 1 si la partie est finie, 0 sino
 int* a;
 int b=0;
 int i;
+printf("a");
 for (i=0;i<t*t;i++) {
 a[i]=0;
 }
+printf("b");
   if (j=="rouge") {
     for (i=0;i<t;i++) {
         recBleu(a,t*i,p);
+	printf("c");
     }
     for (i=0;i<t;i++) {
         if (a[t-1+t*i]==1) {
@@ -369,6 +372,7 @@ a[i]=0;
   } else {
     for (i=0;i<t;i++) {
       recRouge(a,i,p);
+	printf("d");
     }
     for (i=0;i<t;i++) {
         if (a[t*(t-1)+i]==1) {
@@ -390,7 +394,8 @@ int main()
   Plateau *p=newPlateau();
   printf("b");
   ajouterpiece(0,p,"bleu");
-  printf("%d",finPartie(p,"bleu"));
+  printf("d");
+printf("%d",finPartie(newPlateau(),"rouge"));
 
     return 0;
 }
