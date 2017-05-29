@@ -1,5 +1,6 @@
-#include "projet.h"
+#include "main.h"
 #include <stdio.h>
+
 
 const int t=11;
 
@@ -192,7 +193,7 @@ if ((p->cases)[b]->val=="rouge") { // on ne regarde pas les cases qui ne sont pa
 } else { a[b]=1;}
 };
 
-void recBleu(int *a,int b, Plateau *p) {
+void recBleu(int *a,int b, Case **p) {
 if ((p->cases)[b]->val=="bleu") { // on ne regarde pas les cases qui ne sont pas pour le bon joueur
   if (a[b]==1) { // la case a déjà été verifiée, donc on arrete.
   } else {
@@ -355,7 +356,7 @@ int* a;
 int b=0;
 int i;
 printf("a");
-for (i=0;i<t*t;i++) {
+for (i=0;i<t*t-1;i++) {
 a[i]=0;
 }
 printf("b");
@@ -395,6 +396,13 @@ int main()
   printf("b");
   ajouterpiece(0,p,"bleu");
   printf("d");
+printf("%d",finPartie(p,"bleu"));
+free(c);
+free(p);
+int b=8;
+printf("%d",b/t);
+printf("%d",b%t);
+
 
     return 0;
 }
