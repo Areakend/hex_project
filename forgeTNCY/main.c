@@ -7,6 +7,7 @@
 #include "position.c"
 #include "alloc.c"
 #include "ajouter.c"
+#include "structure.c"
 
 //25*29
 //Les attributs de l'ecran (640 * 480)
@@ -16,10 +17,10 @@ const int SCREEN_BPP = 32;
 
 int clicx =0;
 int clicy =0;
-const int t=120;
 int posx = 0;
 int posy = 0;
 int modif =0;
+int p[120] = { 0 };
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
@@ -92,21 +93,13 @@ while( quit == 0 ) {
 			case SDL_MOUSEBUTTONUP:
 				clicx = event.button.x;
 				clicy = event.button.y;
-				//ajouterpiece(fctpos(clix,clicy), p);
-				//printf("pos : (%d,%d) !!", clicx, clicy);
-				//printf("fct pos : case (%d,%d) :) ", pixel[0][0][0], pixel[0][0][1]);
-				//printf("fct pos : case (%d,%d) :) ", pixel[11][0][0], pixel[11][0][1]);
-				//printf("fct pos : case %d :) ", fctpos(clicx,clicy, pixel));
-				//case0 = load_image("rouge.bmp"); 
-				//apply_surface(90+49+(t%11)*26+(t/11)*13,90+57+(t/11)*19,case0,screen);
-				modif = addcase(fctpos(clicx,clicy, pixel), screen, joueuractuel);
+				modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen);
 				if (modif ==1) {
 					joueuractuel = changeplayer(joueuractuel);
 				}
 				if( SDL_Flip( screen ) == -1 ) {
   				      return 1;
 				}
-//SDL_Flip(screen);
 				break;
 			//Si l'utilisateur a cliqué sur le X de la fenêtre
 			case SDL_QUIT:  

@@ -5,9 +5,9 @@
 
 
 # Variable contenant les *.c
-CFILES = main.c alloc.c image.c position.c ajouter.c
+CFILES = main.c alloc.c image.c position.c ajouter.c structure.c
 # Variable contenant les *.h
-HFILES = main.h alloc.h image.h position.h ajouter.h 
+HFILES = main.h alloc.h image.h position.h ajouter.h structure.h
 
 all: clean project
 
