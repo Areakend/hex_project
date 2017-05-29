@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int main( int argc, char* args[]);
+int main();
+char *changeplayer(char* joueuractuel);
 
 #endif

@@ -189,7 +189,7 @@ if ((p->cases)[b]->val=="rouge") { // on ne regarde pas les cases qui ne sont pa
 }
 }
 }
-}
+} else { a[b]=1;}
 };
 
 void recBleu(int *a,int b, Plateau *p) {
@@ -347,7 +347,7 @@ if ((p->cases)[b-t]->val=="bleu") {
 }
 }
 }
-}
+}else { a[b]=1;}
 };
 
 int finPartie(Plateau *p,char* j) { // retourne 1 si la partie est finie, 0 sinon , et t la taille du plateau sur lequel on joue
@@ -395,7 +395,6 @@ int main()
   printf("b");
   ajouterpiece(0,p,"bleu");
   printf("d");
-printf("%d",finPartie(newPlateau(),"rouge"));
 
     return 0;
 }
