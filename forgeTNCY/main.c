@@ -18,7 +18,8 @@ int main() {
 	const int SCREEN_HEIGHT = 594;
 	const int SCREEN_BPP = 32;
 
-	int run = 1;
+	int run1 = 1;
+	int run2 = 1;
 
 	int clicx =0;
 	int clicy =0;
@@ -32,12 +33,7 @@ int main() {
 	SDL_Surface *screen = NULL;
 	SDL_Surface *plateau = NULL;
 	SDL_Surface *background = NULL;
-	// Les surfaces des différentes vues du menu
-	SDL_Surface *colorMenu = NULL;
-	SDL_Surface *orangeWins = NULL;
-	SDL_Surface *startMenu = NULL;
-	SDL_Surface *versusMenu = NULL;
-	SDL_Surface *violetWins = NULL;
+	SDL_Surface *menu = NULL;
 	
 	//La structure d'evenement
 	SDL_Event event;
@@ -76,16 +72,12 @@ int main() {
 	//Chargement des images
 	plateau = load_image( "plateau.bmp" );
 	background = load_image( "background.bmp" );
-	colorMenu = IMG_Load( "menu/colorMenu.png" );
-	orangeWins = IMG_Load( "menu/orangeWins.png" );
-	startMenu = IMG_Load( "menu/startMenu.png" );
-	versusMenu = IMG_Load( "menu/versusMenu.png" );
-	violetWins = IMG_Load( "menu/violetWins.png" );
+	menu = IMG_Load( "menu/startMenu.png" );
 	
-	// Placement de la surface startMenu
-	SDL_Rect startMenuPosition;
-	startMenuPosition.x = 3 * SCREEN_WIDTH / 4 - startMenu->w / 2;
-	startMenuPosition.y = SCREEN_HEIGHT / 2 - startMenu->h / 2;
+	// Placement de la surface menu
+	SDL_Rect menuPosition;
+	menuPosition.x = 3 * SCREEN_WIDTH / 4 - menu->w / 2;
+	menuPosition.y = SCREEN_HEIGHT / 2 - menu->h / 2;
 
 	// Création de la transparence sur le pourtour du plateau
 	SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0));
@@ -93,31 +85,83 @@ int main() {
 	//Application des surfaces sur l'ecran
 	apply_surface( 0, 0, background, screen );
 
-	SDL_BlitSurface(startMenu, NULL, screen, &startMenuPosition);
+	SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 	
 	SDL_Flip(screen); // Mise à jour de l'écran
 
-	/////METTRE LE MENU ICI
-
-	while (run) { // TANT QUE la variable ne vaut pas 0
+	while (run1) { // TANT QUE la variable ne vaut pas 0
         	SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         	switch(event.type) { // On teste le type d'événement
             		case SDL_KEYDOWN:
-            			if (event.key.keysym.sym && SDLK_ESCAPE) { // Appui sur la touche Echap, on arrête le programme  
-                    			run = 0;
-            			}
+				switch (event.key.keysym.sym) {
+					case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
+						run1 = 0;
+						break;
+					default:
+					run = 1;
+				}
             			break;
 			case SDL_MOUSEBUTTONUP:
-				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 60 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 60 ) {					
+				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
 					run = 0;
 				}
-					break;
+				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 40 && event.button.y <= SCREEN_HEIGHT / 4 + 40 ) { // Touche nouveau jeu
+					menu = IMG_Load( "menu/versusMenu.png" );
+					apply_surface( 0, 0, background, screen );
+					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+					SDL_Flip(screen); // Mise à jour de l'écran
+					while (run && run) { // TANT QUE la variable ne vaut pas 0
+        					SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
+        					switch(event.type) { // On teste le type d'événement
+            						case SDL_KEYDOWN:
+								switch (event.key.keysym.sym) {
+									case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
+									run = 0;
+									break;
+									default:
+									run = 1;
+								}
+            							break;
+							case SDL_MOUSEBUTTONUP:
+								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+									run = 0;
+								}
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 40 && event.button.y <= SCREEN_HEIGHT / 8 + 40 ) { // Touche 1VS1
+									menu = IMG_Load( "menu/colorMenu.png" );
+									apply_surface( 0, 0, background, screen );
+									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+									SDL_Flip(screen); // Mise à jour de l'écran
+
+
+									// CHOIX COULEUR
+
+									// DEBUT JEU
+
+								}
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 40 ) { // Touche VS IA
+									// LANCER LE JEU VS L'IA
+					
+								}
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche 1VS1
+									menu = IMG_Load( "menu/startMenu.png" );
+									apply_surface( 0, 0, background, screen );
+									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+									SDL_Flip(screen); // Mise à jour de l'écran
+					
+								}
+
+								break;
+			
+        					}
+					}
+				}
+				break;
 			
         	}
 	}
 
 
-    SDL_Quit();
+    	SDL_Quit();
 	
 	
 	//Application des surfaces sur l'ecran
@@ -128,55 +172,12 @@ int main() {
         return 1;
 	}
 
-//modif=IAS(p, pile, screen, joueuractuel); //IA
-//SDL_Flip( screen ); //IA
-//modif =0; //IA
 
-while( quit == 0 ) {
-	//Tant qu'il y a un événement à traiter 
-	while( SDL_PollEvent( &event ) ) {
-		switch(event.type) {
-
-			//Si l'utilisateur clique
-			case SDL_MOUSEBUTTONUP:
-				clicx = event.button.x;
-				clicy = event.button.y;
-				if (joueuractuel = "bleu") {
-					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
-				}
-				if (modif ==1) {
-					joueuractuel = changeplayer(joueuractuel);
-				}
-				if( SDL_Flip( screen ) == -1 ) {
-  					     return 1;
-				}
-	
-				if (joueuractuel = "rouge") {
-					modif=IAS(p, pile, screen, joueuractuel);
-				}
-				if (modif ==1) {
-					joueuractuel = changeplayer(joueuractuel);
-				}
-				SDL_Flip( screen );
-				modif=0;
-				break;
-
-				//Si l'utilisateur a cliqué sur le X de la fenêtre
-				case SDL_QUIT:  
-					quit = 1;
-					break; 
-			} 
-		}
-	}	
 	
 	//Liberation des surface
 	SDL_FreeSurface( plateau );
 	SDL_FreeSurface( background );
-	SDL_FreeSurface( colorMenu );
-	SDL_FreeSurface( orangeWins );
-	SDL_FreeSurface( startMenu );
-	SDL_FreeSurface( versusMenu );
-	SDL_FreeSurface( violetWins );
+	SDL_FreeSurface( menu );
 
 	//On quitte sdl
 	SDL_Quit();
