@@ -8,6 +8,8 @@ void recBleu(int a[120],int b,int p[120]);
 int addcase(int pos, SDL_Surface *screen, char* joueuractuel);
 
 
+int premiercoup;
+
 typedef struct{
   char* val;
 } Case;
