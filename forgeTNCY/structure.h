@@ -5,6 +5,8 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile);
 int finPartie(char *joueuractuel, int p[121]);
 void recRouge(int a[120],int b,int p[120]);
 void recBleu(int a[120],int b,int p[120]);
+int addcase(int pos, SDL_Surface *screen, char* joueuractuel);
+
 
 typedef struct{
   char* val;

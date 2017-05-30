@@ -21,9 +21,11 @@ int main() {
 
 	int run1 = 1;
 	int run2 = 1;
+	int run3 = 1;
 
 	int gagner = 0;
-int IA = 1;
+
+int IA = 1; // A SUPPRIMER
 
 	int clicx =0;
 	int clicy =0;
@@ -92,26 +94,23 @@ int IA = 1;
 	SDL_Flip(screen); // Mise à jour de l'écran
 
 	while (run1) { // TANT QUE run1 ne vaut pas 0
+		run2 = 1;
         	SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         	switch(event.type) { // On teste le type d'événement
-        		case SDL_QUIT:
-            			run1 = 0;
-            			break;
-
-            		case SDL_KEYDOWN:
+			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
 						run1 = 0;
 						break;
 					default:
-					run1 = 1;
+						run1 = 1;
 				}
             			break;
 			case SDL_MOUSEBUTTONUP:
 				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
 					run1 = 0;
 				}
-				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 40 && event.button.y <= SCREEN_HEIGHT / 4 + 40 ) { // Touche nouveau jeu
+				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 + 30 ) { // Touche nouveau jeu
 					menu = IMG_Load( "menu/versusMenu.png" );
 					apply_surface( 0, 0, background, screen );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
@@ -122,9 +121,13 @@ int IA = 1;
             						case SDL_KEYDOWN:
 								switch (event.key.keysym.sym) {
 									case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
-									run1 = 0;
+									menu = IMG_Load( "menu/startMenu.png" );
+									apply_surface( 0, 0, background, screen );
+									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+									SDL_Flip(screen); // Mise à jour de l'écran
+									run2 = 0;
 									break;
-									default:
+								default:
 									run1 = 1;
 								}
             							break;
@@ -137,10 +140,21 @@ int IA = 1;
 									apply_surface( 0, 0, background, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
-
-
-									// CHOIX COULEUR
-
+/* A RETRAVAILLER
+									while (run3) { // Choix couleur
+										SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
+        									switch(event.type) { // On teste le type d'événement
+											case SDL_KEYDOWN:
+												switch (event.key.keysym.sym) {
+													case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
+														run1 = 0;
+														break;
+													default:
+														run1 = 1;
+												}
+            											break;
+											case SDL_MOUSEBUTTONUP:
+*/
 									// DEBUT JEU
 
 								}

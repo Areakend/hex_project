@@ -11,7 +11,7 @@ const int t=11;
 int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON REND 1 SI LE COUP A PU ETRE JOUE, 0 SINON, a doit etre compris entre 0 et 120
   int modif = 0;
   int recherche = 0;
-  if (j=="rouge") {
+  if (strcmp(j,"rouge")) {
     if (p[a-1]==0) {
 	modif=addcase(a, screen, j);
 	if (modif==1) {
@@ -20,7 +20,7 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
     }
   }
 
-  if (j=="bleu") {
+  if (strcmp(j,"bleu")) {
     if (p[a-1]==0) {
 	modif=addcase(a, screen, j);
 	if (modif==1) {
@@ -266,17 +266,18 @@ if (p[b-t]==-1) {
 }
 }
 }
-}else { a[b]=1;}
+}
 };
 
 int finPartie(char *joueuractuel, int p[120]) { // retourne 1 si la partie est finie, 0 sinon , et t la taille du plateau sur lequel on joue
-int j=0;
+/*int j=0;
 if (joueuractuel=="bleu") {
 	j=-1;
 }
 if (joueuractuel=="rouge") {
 	j=1;
 }
+*/
 
 int a[120];
 int b=0;
