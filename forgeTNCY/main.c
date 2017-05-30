@@ -23,7 +23,7 @@ int main() {
 	int run2 = 1;
 
 	int gagner = 0;
-int IA = 1;
+	int IA = 1;
 
 	int clicx =0;
 	int clicy =0;
