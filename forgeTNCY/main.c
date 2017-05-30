@@ -21,6 +21,7 @@ int main() {
 
 	int run = 1;
 	int gagner = 0;
+	int IA = 1;
 
 	int clicx =0;
 	int clicy =0;
@@ -138,54 +139,88 @@ int main() {
 //SDL_Flip( screen ); //IA
 //modif =0; //IA
 
-while( quit == 0 ) {
-	//Tant qu'il y a un événement à traiter 
-	while( SDL_PollEvent( &event ) ) {
-		switch(event.type) {
-
-			//Si l'utilisateur clique
-			case SDL_MOUSEBUTTONUP:
-				clicx = event.button.x;
-				clicy = event.button.y;
-				if (joueuractuel = "bleu") {
-					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
-				}
-				if (modif ==1) {
-					joueuractuel = changeplayer(joueuractuel);
-				}
-				if( SDL_Flip( screen ) == -1 ) {
-  					     return 1;
-				}
-				gagner=finPartie(joueuractuel, p);
-				if (gagner==1) {
-					printf("VICTOIRE");
-				}
-				SDL_Flip( screen );
-				
-				if (joueuractuel = "rouge") {
-					if (modif == 1) {
-						modif=IAS(p, pile, screen, joueuractuel);
+if (IA == 1) {
+	while( quit == 0 ) {
+		//Tant qu'il y a un événement à traiter 
+		while( SDL_PollEvent( &event ) ) {
+			switch(event.type) {
+	
+				//Si l'utilisateur clique
+				case SDL_MOUSEBUTTONUP:
+					clicx = event.button.x;
+					clicy = event.button.y;
+					if (joueuractuel = "bleu") {
+						modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 					}
-				}
-				if (modif ==1) {
-					joueuractuel = changeplayer(joueuractuel);
-				}
-				SDL_Flip( screen );
-				gagner=finPartie(joueuractuel, p);
-				if (gagner==1) {
-					printf("VICTOIRE");
-				}
-				SDL_Flip( screen );
-				modif=0;
-				break;
-
-				//Si l'utilisateur a cliqué sur le X de la fenêtre
-				case SDL_QUIT:  
-					quit = 1;
-					break; 
-			} 
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					if( SDL_Flip( screen ) == -1 ) {
+  						     return 1;
+					}
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					
+					if (joueuractuel = "rouge") {
+						if (modif == 1) {
+							modif=IAS(p, pile, screen, joueuractuel);
+						}
+					}
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					SDL_Flip( screen );
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					modif=0;
+					break;
+	
+					//Si l'utilisateur a cliqué sur le X de la fenêtre
+					case SDL_QUIT:  
+						quit = 1;
+						break; 
+				} 
+			}
 		}
-	}	
+	}
+if (IA == 0) {
+	while( quit == 0 ) {
+		//Tant qu'il y a un événement à traiter 
+		while( SDL_PollEvent( &event ) ) {
+			switch(event.type) {
+	
+				//Si l'utilisateur clique
+				case SDL_MOUSEBUTTONUP:
+					clicx = event.button.x;
+					clicy = event.button.y;
+					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					SDL_Flip( screen );
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					modif=0;
+					break;
+	
+					//Si l'utilisateur a cliqué sur le X de la fenêtre
+					case SDL_QUIT:  
+						quit = 1;
+						break; 
+				} 
+			}
+		}
+	}
+
 	
 	//Liberation des surface
 	SDL_FreeSurface( plateau );

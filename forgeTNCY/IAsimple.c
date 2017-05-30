@@ -67,6 +67,20 @@ int IAS(int *p, int *pile, SDL_Surface *screen, char* joueuractuel) {
 		}
 	}
 	if (modif == 0) {
+		if (p[last_case - 1 ] == -1) {
+			modif = ajouterpiece(last_case+20, p, joueuractuel, screen, pile);
+		}
+	}
+	if (modif == 0) {
+		if (p[last_case - 10 ] == -1) {
+			if (p[last_case - 20] == -1) {
+				if (last_case > pile[recherche-2]) {
+					modif = ajouterpiece(last_case+21, p, joueuractuel, screen, pile);
+				}
+			}
+		}
+	}
+	if (modif == 0) {
 		if (p[last_case + 10 ] == -1) {
 			if (p[last_case + 20] == -1) {
 				if (last_case < pile[recherche-2]) {
@@ -77,10 +91,8 @@ int IAS(int *p, int *pile, SDL_Surface *screen, char* joueuractuel) {
 	}
 
 	if (modif == 0) {
-		if (p[last_case - 11 ] == -1) {
-			if (p[last_case + 10] == -1) {
-				modif = ajouterpiece(last_case-11, p, joueuractuel, screen, pile);
-			}
+		if (p[last_case - 10 ] == -1) {
+			modif = ajouterpiece(last_case-10, p, joueuractuel, screen, pile);
 		}
 	}
 

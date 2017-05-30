@@ -280,29 +280,30 @@ if (joueuractuel=="rouge") {
 
 int a[120];
 int b=0;
+int c[120];
 int i;
 for (i=0;i<120;i++) {
 a[i]=0;
 
 }
-  if (j==-1) {
+//  if (j==1) {
     for (i=0;i<t;i++) {
-        recBleu(a,t*i,p);
-    }
-    for (i=0;i<t;i++) {
-        if (a[t-1+t*i]==1) {
-        b=1;
-        }
-    }
-  } else {
-    for (i=0;i<t;i++) {
-      recRouge(a,i,p);
+        recBleu(a,i,p);
     }
     for (i=0;i<t;i++) {
         if (a[t*(t-1)+i]==1) {
         b=1;
         }
     }
+//  } else {
+    for (i=0;i<t;i++) {
+      recRouge(c,t*i,p);
+    }
+    for (i=0;i<t;i++) {
+        if (c[t-1+t*i]==1) {
+        b=1;
+        }
+//    }
   }
   return b;
 
