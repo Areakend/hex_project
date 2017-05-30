@@ -19,16 +19,14 @@ int main() {
 	const int SCREEN_HEIGHT = 594;
 	const int SCREEN_BPP = 32;
 
-	int run = 1;
-	//int run2 = 1;
+	int run1 = 1;
+	int run2 = 1;
 
 	int gagner = 0;
+int IA = 1;
 
-	int IA = 1;
 	int clicx =0;
 	int clicy =0;
-	int posx = 0;
-	int posy = 0;
 	int modif =0;
 	int p[120] = { 0 };
 	int pile[120] = { 0 };
@@ -43,7 +41,7 @@ int main() {
 	SDL_Event event;
 
 
-	char* joueuractuel="rouge";
+	char* joueuractuel="bleu";
 	int quit = 0;
 	int ***pixel = alloc_data(121, 450, 2);
 	tab(pixel);
@@ -93,46 +91,46 @@ int main() {
 	
 	SDL_Flip(screen); // Mise à jour de l'écran
 
-	while (run) { // TANT QUE la variable ne vaut pas 0
+	while (run1) { // TANT QUE run1 ne vaut pas 0
         	SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         	switch(event.type) { // On teste le type d'événement
         		case SDL_QUIT:
-            			run = 0;
+            			run1 = 0;
             			break;
 
             		case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
-						run = 0;
+						run1 = 0;
 						break;
 					default:
-					run = 1;
+					run1 = 1;
 				}
             			break;
 			case SDL_MOUSEBUTTONUP:
 				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
-					run = 0;
+					run1 = 0;
 				}
 				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 40 && event.button.y <= SCREEN_HEIGHT / 4 + 40 ) { // Touche nouveau jeu
 					menu = IMG_Load( "menu/versusMenu.png" );
 					apply_surface( 0, 0, background, screen );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 					SDL_Flip(screen); // Mise à jour de l'écran
-					while (run) { // TANT QUE la variable ne vaut pas 0
+					while (run1 && run2) { // TANT QUE run2 ne vaut pas 0
         					SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         					switch(event.type) { // On teste le type d'événement
             						case SDL_KEYDOWN:
 								switch (event.key.keysym.sym) {
 									case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
-									run = 0;
+									run1 = 0;
 									break;
 									default:
-									run = 1;
+									run1 = 1;
 								}
             							break;
 							case SDL_MOUSEBUTTONUP:
 								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
-									run = 0;
+									run1 = 0;
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 40 && event.button.y <= SCREEN_HEIGHT / 8 + 40 ) { // Touche 1VS1
 									menu = IMG_Load( "menu/colorMenu.png" );
@@ -150,11 +148,12 @@ int main() {
 									// LANCER LE JEU VS L'IA
 					
 								}
-								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche 1VS1
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
 									menu = IMG_Load( "menu/startMenu.png" );
 									apply_surface( 0, 0, background, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
+									run2 = 0;
 					
 								}
 
@@ -192,7 +191,7 @@ if (IA == 1) {
 				case SDL_MOUSEBUTTONUP:
 					clicx = event.button.x;
 					clicy = event.button.y;
-					if (joueuractuel = "bleu") {
+					if (strcmp(joueuractuel,"rouge")) {
 						modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 					}
 					if (modif ==1) {
@@ -207,7 +206,7 @@ if (IA == 1) {
 					}
 					SDL_Flip( screen );
 					
-					if (joueuractuel = "rouge") {
+					if (strcmp(joueuractuel, "bleu")) {
 						if (modif == 1) {
 							modif=IAS(p, pile, screen, joueuractuel);
 						}
