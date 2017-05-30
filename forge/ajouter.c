@@ -3,6 +3,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "image.h"
+#include "ajouter.h"
 #include <string.h>
 
 //Les surfaces des hexagones
@@ -132,7 +133,7 @@ int addcase(int pos, SDL_Surface *screen, char* joueuractuel) {
 
 int modif =0;
 
-
+//Dimension pixel
 //23,19
 //+27,+0
 //+14, +24

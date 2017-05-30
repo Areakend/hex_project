@@ -7,6 +7,7 @@
 #include "position.c"
 #include "alloc.c"
 #include "ajouter.c"
+#include "IAsimple.c"
 
 //25*29
 //Les attributs de l'ecran (640 * 480)
@@ -16,10 +17,11 @@ const int SCREEN_BPP = 32;
 
 int clicx =0;
 int clicy =0;
-const int t=120;
 int posx = 0;
 int posy = 0;
 int modif =0;
+int p[120] = { 0 };
+int pile[120] = { 0 };
 
 //Les surfaces
 SDL_Surface *plateau = NULL;
@@ -83,39 +85,48 @@ apply_surface( 90, 90, plateau, screen );
 if( SDL_Flip( screen ) == -1 ) {
         return 1;
 }
+//modif=IAS(p, pile, screen, joueuractuel); //IA
+//SDL_Flip( screen ); //IA
+//modif =0; //IA
 
 while( quit == 0 ) {
 	//Tant qu'il y a un événement à traiter 
 	while( SDL_PollEvent( &event ) ) {
 		switch(event.type) {
+
 			//Si l'utilisateur clique
 			case SDL_MOUSEBUTTONUP:
 				clicx = event.button.x;
 				clicy = event.button.y;
-				//ajouterpiece(fctpos(clix,clicy), p);
-				//printf("pos : (%d,%d) !!", clicx, clicy);
-				//printf("fct pos : case (%d,%d) :) ", pixel[0][0][0], pixel[0][0][1]);
-				//printf("fct pos : case (%d,%d) :) ", pixel[11][0][0], pixel[11][0][1]);
-				//printf("fct pos : case %d :) ", fctpos(clicx,clicy, pixel));
-				//case0 = load_image("rouge.bmp"); 
-				//apply_surface(90+49+(t%11)*26+(t/11)*13,90+57+(t/11)*19,case0,screen);
-				modif = addcase(fctpos(clicx,clicy, pixel), screen, joueuractuel);
+				if (joueuractuel = "bleu") {
+					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+				}
 				if (modif ==1) {
 					joueuractuel = changeplayer(joueuractuel);
 				}
 				if( SDL_Flip( screen ) == -1 ) {
-  				      return 1;
+  					     return 1;
 				}
-//SDL_Flip(screen);
+	
+				if (joueuractuel = "rouge") {
+					if (modif==1) {
+						modif=IAS(p, pile, screen, joueuractuel);
+					}
+				}
+				if (modif ==1) {
+					joueuractuel = changeplayer(joueuractuel);
+				}
+				SDL_Flip( screen );
+				modif=0;
 				break;
-			//Si l'utilisateur a cliqué sur le X de la fenêtre
+
+
 			case SDL_QUIT:  
 				quit = 1;
 				break; 
 		} 
 	}
 }
-
 //Liberation des surface
 SDL_FreeSurface( plateau );
 SDL_FreeSurface( background );
