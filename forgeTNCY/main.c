@@ -10,6 +10,7 @@
 #include "alloc.c"
 #include "ajouter.c"
 #include "IAsimple.c"
+#include "structure.h"
 
 
 int main() {
@@ -18,9 +19,12 @@ int main() {
 	const int SCREEN_HEIGHT = 594;
 	const int SCREEN_BPP = 32;
 
-	int run1 = 1;
-	int run2 = 1;
+	int run = 1;
+	//int run2 = 1;
 
+	int gagner = 0;
+
+	int IA = 1;
 	int clicx =0;
 	int clicy =0;
 	int posx = 0;
@@ -89,13 +93,17 @@ int main() {
 	
 	SDL_Flip(screen); // Mise à jour de l'écran
 
-	while (run1) { // TANT QUE la variable ne vaut pas 0
+	while (run) { // TANT QUE la variable ne vaut pas 0
         	SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         	switch(event.type) { // On teste le type d'événement
+        		case SDL_QUIT:
+            			run = 0;
+            			break;
+
             		case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
-						run1 = 0;
+						run = 0;
 						break;
 					default:
 					run = 1;
@@ -110,7 +118,7 @@ int main() {
 					apply_surface( 0, 0, background, screen );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 					SDL_Flip(screen); // Mise à jour de l'écran
-					while (run && run) { // TANT QUE la variable ne vaut pas 0
+					while (run) { // TANT QUE la variable ne vaut pas 0
         					SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         					switch(event.type) { // On teste le type d'événement
             						case SDL_KEYDOWN:
@@ -160,18 +168,103 @@ int main() {
         	}
 	}
 
-
-    	SDL_Quit();
-	
 	
 	//Application des surfaces sur l'ecran
-	apply_surface( 90, 90, plateau, screen );
+	apply_surface( 14, 100, plateau, screen );
 
 	//mise à jour de l'ecran
 	if( SDL_Flip( screen ) == -1 ) {
-        return 1;
+        	return 1;
 	}
 
+
+//modif=IAS(p, pile, screen, joueuractuel); //IA
+//SDL_Flip( screen ); //IA
+//modif =0; //IA
+
+if (IA == 1) {
+	while( quit == 0 ) {
+		//Tant qu'il y a un événement à traiter 
+		while( SDL_PollEvent( &event ) ) {
+			switch(event.type) {
+	
+				//Si l'utilisateur clique
+				case SDL_MOUSEBUTTONUP:
+					clicx = event.button.x;
+					clicy = event.button.y;
+					if (joueuractuel = "bleu") {
+						modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+					}
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					if( SDL_Flip( screen ) == -1 ) {
+  						     return 1;
+					}
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					
+					if (joueuractuel = "rouge") {
+						if (modif == 1) {
+							modif=IAS(p, pile, screen, joueuractuel);
+						}
+					}
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					SDL_Flip( screen );
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					modif=0;
+					break;
+	
+					//Si l'utilisateur a cliqué sur le X de la fenêtre
+					case SDL_QUIT:  
+						quit = 1;
+						break; 
+				} 
+			}
+		}
+	}
+
+
+if (IA == 0) { //1VS1
+	while( quit == 0 ) {
+		//Tant qu'il y a un événement à traiter 
+		while( SDL_PollEvent( &event ) ) {
+			switch(event.type) {
+	
+				//Si l'utilisateur clique
+				case SDL_MOUSEBUTTONUP:
+					clicx = event.button.x;
+					clicy = event.button.y;
+					modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+					if (modif ==1) {
+						joueuractuel = changeplayer(joueuractuel);
+					}
+					SDL_Flip( screen );
+					gagner=finPartie(joueuractuel, p);
+					if (gagner==1) {
+						printf("VICTOIRE");
+					}
+					SDL_Flip( screen );
+					modif=0;
+					break;
+	
+					//Si l'utilisateur a cliqué sur le X de la fenêtre
+					case SDL_QUIT:  
+						quit = 1;
+						break; 
+				} 
+			}
+		}
+	}
 
 	
 	//Liberation des surface
