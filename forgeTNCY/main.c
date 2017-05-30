@@ -9,6 +9,7 @@
 #include "alloc.c"
 #include "ajouter.c"
 #include "IAsimple.c"
+#include "structure.h"
 
 
 int main() {
@@ -18,6 +19,7 @@ int main() {
 	const int SCREEN_BPP = 32;
 
 	int run = 1;
+	int gagner = 0;
 
 	int clicx =0;
 	int clicy =0;
@@ -85,7 +87,7 @@ int main() {
 	SDL_BlitSurface(quitButton, NULL, screen, &quitPosition);
 	
 	SDL_Flip(screen); // Mise à jour de l'écran
-
+	/*
 	/////METTRE LE MENU ICI
 
 	while (run) { // TANT QUE la variable ne vaut pas 0
@@ -96,7 +98,7 @@ int main() {
             			break;
         		case SDL_KEYDOWN:
             			switch (event.key.keysym.sym) {
-                			case SDLK_ESCAPE: /* Appui sur la touche Echap, on arrête le programme */
+                			case SDLK_ESCAPE: /* Appui sur la touche Echap, on arrête le programme *//*
                     			run = 0;
                     			break;
             			}
@@ -110,8 +112,8 @@ int main() {
 	}
 
 
-    SDL_Quit();
-	
+  	 SDL_Quit();
+	*/
 	
 	//Application des surfaces sur l'ecran
 	apply_surface( 90, 90, plateau, screen );
@@ -143,12 +145,24 @@ while( quit == 0 ) {
 				if( SDL_Flip( screen ) == -1 ) {
   					     return 1;
 				}
-	
+				gagner=finPartie(joueuractuel, p);
+				if (gagner==1) {
+					printf("VICTOIRE");
+				}
+				SDL_Flip( screen );
+				
 				if (joueuractuel = "rouge") {
-					modif=IAS(p, pile, screen, joueuractuel);
+					if (modif == 1) {
+						modif=IAS(p, pile, screen, joueuractuel);
+					}
 				}
 				if (modif ==1) {
 					joueuractuel = changeplayer(joueuractuel);
+				}
+				SDL_Flip( screen );
+				gagner=finPartie(joueuractuel, p);
+				if (gagner==1) {
+					printf("VICTOIRE");
 				}
 				SDL_Flip( screen );
 				modif=0;
