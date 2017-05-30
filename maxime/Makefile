@@ -12,7 +12,7 @@ HFILES = main.h
 all: clean project
 
 project: files
-	gcc -o project main.o `sdl-config --libs`
+	gcc -o project main.o -lSDL -lSDL_image `sdl-config --libs`
 
 files: $(CFILES) $(HFILES)
 	gcc -c -Wall -Wextra $(CFILES) `sdl-config --cflags`
