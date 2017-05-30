@@ -4,6 +4,7 @@
 #include <string.h>
 #include "main.h"
 #include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
 #include "image.c"
 #include "position.c"
 #include "alloc.c"
@@ -30,10 +31,15 @@ int main() {
 	int pile[120] = { 0 };
 
 	//Les surfaces
+	SDL_Surface *screen = NULL;
 	SDL_Surface *plateau = NULL;
 	SDL_Surface *background = NULL;
-	SDL_Surface *screen = NULL;
-	SDL_Surface *quitButton = NULL;
+	// Les surfaces des différentes vues du menu
+	SDL_Surface *colorMenu = NULL;
+	SDL_Surface *orangeWins = NULL;
+	SDL_Surface *startMenu = NULL;
+	SDL_Surface *versusMenu = NULL;
+	SDL_Surface *violetWins = NULL;
 	
 	//La structure d'evenement
 	SDL_Event event;
@@ -72,11 +78,16 @@ int main() {
 	//Chargement des images
 	plateau = load_image( "plateau.bmp" );
 	background = load_image( "background.bmp" );
-	quitButton = SDL_LoadBMP( "sdl_icone.bmp" );
-
-	SDL_Rect quitPosition;
-	quitPosition.x = SCREEN_WIDTH / 2 - quitButton->w / 2;
-	quitPosition.y = SCREEN_HEIGHT / 2 - quitButton->h / 2;
+	colorMenu = IMG_Load( "menu/colorMenu.png" );
+	orangeWins = IMG_Load( "menu/orangeWins.png" );
+	startMenu = IMG_Load( "menu/startMenu.png" );
+	versusMenu = IMG_Load( "menu/versusMenu.png" );
+	violetWins = IMG_Load( "menu/violetWins.png" );
+	
+	// Placement de la surface startMenu
+	SDL_Rect startMenuPosition;
+	startMenuPosition.x = 3 * SCREEN_WIDTH / 4 - startMenu->w / 2;
+	startMenuPosition.y = SCREEN_HEIGHT / 2 - startMenu->h / 2;
 
 	// Création de la transparence sur le pourtour du plateau
 	SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0));
@@ -84,7 +95,7 @@ int main() {
 	//Application des surfaces sur l'ecran
 	apply_surface( 0, 0, background, screen );
 
-	SDL_BlitSurface(quitButton, NULL, screen, &quitPosition);
+	SDL_BlitSurface(startMenu, NULL, screen, &startMenuPosition);
 	
 	SDL_Flip(screen); // Mise à jour de l'écran
 	/*
@@ -96,16 +107,16 @@ int main() {
         		case SDL_QUIT:
             			run = 0;
             			break;
-        		case SDL_KEYDOWN:
-            			switch (event.key.keysym.sym) {
-                			case SDLK_ESCAPE: /* Appui sur la touche Echap, on arrête le programme *//*
+
+            		case SDL_KEYDOWN:
+            			if (event.key.keysym.sym && SDLK_ESCAPE) { // Appui sur la touche Echap, on arrête le programme  
                     			run = 0;
-                    			break;
             			}
             			break;
 			case SDL_MOUSEBUTTONUP:
-				if (event.button.x >= SCREEN_WIDTH / 2 - quitButton->w / 2  && event.button.x <= SCREEN_WIDTH / 2 + quitButton->w / 2 && event.button.y >= SCREEN_HEIGHT / 2 - quitButton->h / 2 && event.button.y <= SCREEN_HEIGHT / 2 + quitButton->h / 2) {					
-					run = 0;}
+				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 60 && event.button.y <= 3 * SCREEN_HEIGHT / 4) {
+					run = 0;
+				}
 					break;
 			
         	}
@@ -179,8 +190,12 @@ while( quit == 0 ) {
 	//Liberation des surface
 	SDL_FreeSurface( plateau );
 	SDL_FreeSurface( background );
+	SDL_FreeSurface( colorMenu );
+	SDL_FreeSurface( orangeWins );
+	SDL_FreeSurface( startMenu );
+	SDL_FreeSurface( versusMenu );
+	SDL_FreeSurface( violetWins );
 
-	//free_data(pixel, 121, 432);
 	//On quitte sdl
 	SDL_Quit();
 	printf("Programme terminé correctement.\n");
