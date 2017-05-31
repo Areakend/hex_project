@@ -11,7 +11,7 @@ int main() {
 	int run3 = 1;
 
 	int gagner = 0;
-	int z = 1;
+	int bugZ = 1;
 
 	int i;
 	int clicx =0;
@@ -127,7 +127,7 @@ int main() {
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
 
-									while (run1 && run2) { // Choix couleur
+									while (run1 && run2 && run3) { // Choix couleur
 										SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
         									switch(event.type) { // On teste le type d'événement
 											case SDL_KEYDOWN:
@@ -188,8 +188,8 @@ int main() {
 																		menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																		SDL_Flip(screen); // Mise à jour de l'écran
-																		printf("VICTOIRE");
-																		run3 = 0;
+																		printf("VICTOIRE \n");
+																		run2 = 0;
 																		gagner = 0;
 																		break;
 																	}
@@ -197,8 +197,8 @@ int main() {
 																		menu = SDL_LoadBMP( "menu/violetWins.bmp" );
 																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																		SDL_Flip(screen); // Mise à jour de l'écran
-																		printf("VICTOIRE");
-																		run3 = 0;
+																		printf("VICTOIRE \n");
+																		run2 = 0;
 																		gagner = 0;
 																		break;
 																	}
@@ -276,7 +276,7 @@ int main() {
 														menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
-														printf("VICTOIRE");
+														printf("VICTOIRE \n");
 														run3 = 0;
 														gagner = 0;
 														break;
@@ -285,7 +285,7 @@ int main() {
 														menu = SDL_LoadBMP( "menu/violetWins.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
-														printf("VICTOIRE");
+														printf("VICTOIRE \n");
 														run3 = 0;
 														gagner = 0;
 														break;
@@ -320,12 +320,12 @@ int main() {
 													}
 												}
 												gagner=finPartie(joueuractuel, p);
-												if (gagner==1 && z==0) {
+												if (gagner==1 && bugZ==0) {
 													if (strcmp(joueuractuel,"rouge") == 0) {
 														menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
-														printf("VICTOIRE");
+														printf("VICTOIRE \n");
 														run3 = 0;
 														gagner = 0;
 														break;
@@ -334,7 +334,7 @@ int main() {
 														menu = SDL_LoadBMP( "menu/violetWins.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
-														printf("VICTOIRE");
+														printf("VICTOIRE \n");
 														run3 = 0;
 														gagner = 0;
 														break;
@@ -345,13 +345,13 @@ int main() {
 														menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														joueuractuel="bleu";
-														z=0;
+														bugZ=0;
 													}
 													else {
 														menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														joueuractuel="rouge";
-														z=0;
+														bugZ=0;
 													}
 												}
 
