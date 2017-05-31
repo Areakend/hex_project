@@ -43,8 +43,7 @@ int fctpos(int clicx, int clicy, int ***pixel);
 // structure.c
 int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile);
 int finPartie(char *joueuractuel, int p[121]);
-void recRouge(int a[120],int b,int p[120]);
-void recBleu(int a[120],int b,int p[120]);
+void parcours(int j, int p[121], int a[121], int b);
 Case *newCase();
 Plateau *newPlateau();
 int ajouterpiece();

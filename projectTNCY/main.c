@@ -15,11 +15,12 @@ int main() {
 
 	premiercoup = 0;
 
+	int i;
 	int clicx =0;
 	int clicy =0;
 	int modif =0;
-	int p[120] = { 0 };
-	int pile[120] = { 0 };
+	int p[121] = { 0 };
+	int pile[121] = { 0 };
 
 	//Les surfaces
 	SDL_Surface *screen = NULL;
@@ -153,13 +154,36 @@ int main() {
 													run2 = 0;
 												}
 												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 40 && event.button.y <= 100 ) { // Touche Violet
+													for (i=0;i<121;i++) {
+														p[i]=0;
+													}
 													//Application des surfaces sur l'ecran
 													menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
 													apply_surface( 14, 100, plateau, screen );
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
 													//Tant qu'il y a un événement à traiter 
-													while( run2 & run3 ) {
+													while( run2 && run3 ) {
+														if (gagner==1) {
+															if (strcmp(joueuractuel,"rouge") == 0) {
+																menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
+																SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																SDL_Flip(screen); // Mise à jour de l'écran
+																printf("VICTOIRE");
+																run3 = 0;
+																gagner = 0;
+																break;
+															}
+															if (strcmp(joueuractuel,"bleu") == 0) {
+																menu = SDL_LoadBMP( "menu/violetWins.bmp" );
+																SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																SDL_Flip(screen); // Mise à jour de l'écran
+																printf("VICTOIRE");
+																run3 = 0;
+																gagner = 0;
+																break;
+															}
+														}
 														SDL_PollEvent( &event );
 														switch(event.type) {
 															case SDL_KEYDOWN:
@@ -178,22 +202,6 @@ int main() {
 																clicx = event.button.x;
 																clicy = event.button.y;
 																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
-																if (gagner==1) {
-																	if (strcmp(joueuractuel,"rouge") == 0) {
-																		menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
-																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-																		printf("VICTOIRE");
-																		run3 = 0;
-																		break;
-																	}
-																	if (strcmp(joueuractuel,"bleu") == 0) {
-																		menu = SDL_LoadBMP( "menu/violetWins.bmp" );
-																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-																		printf("VICTOIRE");
-																		run3 = 0;
-																		break;
-																	}
-																}
 																if (modif ==1) {
 																	if (strcmp(joueuractuel,"rouge")==0) {
 																		menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
@@ -215,7 +223,6 @@ int main() {
 																}
 																SDL_Flip( screen );
 																gagner=finPartie(joueuractuel, p);
-																SDL_Flip( screen );
 																modif=0;
 																break;
 														}

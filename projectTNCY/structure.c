@@ -28,19 +28,19 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   }
 
   if (strcmp(j,"rouge")==0) {
-    if (p[a-1]==0) {
+    if (p[a]==0) {
 	modif = addcase(a, screen, j);
 	if (modif==1) {
-		p[a-1]=1;
+		p[a]=1;
 	}
     }
   }
 
   if (strcmp(j,"bleu")==0) {
-    if (p[a-1]==0) {
+    if (p[a]==0) {
 	modif=addcase(a, screen, j);
 	if (modif==1) {
-		p[a-1]=-1;
+		p[a]=-1;
 	}
     }
   }
@@ -49,275 +49,185 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   }
 
   if (modif == 1) {
-	pile[recherche+1]=a;
+	pile[recherche]=a;
   }
   return modif;
 };
 
-void recRouge(int a[120],int b,int p[120]) {
-if (p[b]==1) { // on ne regarde pas les cases qui ne sont pas pour le bon joueur
+
+void parcours (int j, int p[121],int a[121],int b) {
+if (p[b]==j) { // on ne regarde pas les cases qui ne sont pas pour le bon joueur
 	a[b]=1;
    if (b/t==0) { // division entiere, on est sur la premiere ligne
       if (b==0) { // case tout à gauche
-      	 if (p[1]==1) {
+      	 if (p[1]==j) {
 	    if(a[1]!=1){
-	    recRouge(a,1,p);
+	    parcours(j,p,a,1);
 	    }
 }
-	 if (p[t]==1) {
+	 if (p[t]==j) {
 	   if ( a[t]!=1){
-	    recRouge(a,t,p);
+	    parcours(j,p,a,t);
 		}
 	  } 
 	}else if (b==t-1) {
-	if (p[t-2]==1) {
+	if (p[t-2]==j) {
 	  if ( a[t-2]!=1) {
-	   recRouge(a,t-2,p);
+	   parcours(j,p,a,t-2);
 }
-	}  if (p[2*t-2]==1) {
+	}  if (p[2*t-2]==j) {
 	   if (a[2*t-2]!=1) {
-	   recRouge(a,2*t-2,p);
-}	}  if (p[2*t-1]==1) {
+	   parcours(j,p,a,2*t-2);
+}	}  if (p[2*t-1]==j) {
 	  if (a[2*t-1]!=1){
-	   recRouge(a,2*t-1,p);
+	   parcours(j,p,a,2*t-1);
 	} }
 	}else {
-	 if (p[b-1]==1) {
+	 if (p[b-1]==j) {
 	   if (a[b-1]!=1) {
-	   recRouge(a,b-1,p);}
-	}if (p[b+1]==1) {
+	   parcours(j,p,a,b-1);}
+	}if (p[b+1]==j) {
 	   if (a[b+1]!=1) {
-	   recRouge(a,b+1,p);}
-	} if (p[b+t-1]==1) {
+	   parcours(j,p,a,b+1);}
+	} if (p[b+t-1]==j) {
 	   if (a[b-1+t]!=1) {
-	   recRouge(a,b-1+t,p);}
-	} if (p[b+t]==1) {
+	   parcours(j,p,a,b+t-1);}
+	} if (p[b+t]==j) {
 	   if (a[b+t]!=1) {
-	   recRouge(a,b+t,p);}
+	   parcours(j,p,a,b+t);}
 	}
 }
-} else if (b/t==t-1) {}
- else {
+} else if (b/t==t-1) {
 	if (b%t==0) {
-	 if (p[b-t]==1) {
+	if (p[b-t]==j) {
 	   if (a[b-t]!=1) {
-	   recRouge(a,b-t,p);}
-	}  if (p[b+t]==1) {
-	   if (a[b+t]!=1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b+1]==j) {
+	   if (a[b+1]!=1) {
 	
-	   recRouge(a,b+t,p);}
-	}  if (p[b+1-t]==1) {
+	   parcours(j,p,a,b+1);}
+	}  if (p[b+1-t]==j) {
 	   if (a[b+1-t]!=1) {
-	   recRouge(a,b+1-t,p); }
-	}  if (p[b+1]==1) {
-	   if (a[b+1]!=1) {
-	   recRouge(a,b+1,p);}
-	}} else if (b%t==t-1) {
-	 if (p[b-t]==1) {
-	   if (a[b-t]!=1) {
-	   recRouge(a,b-t,p);}
-	}  if (p[b+t]==1) {
-	   if (a[b+t]!=1) {
-	   recRouge(a,b+t,p);}
-	 } if (p[b-1]==1) {
-	   if (a[b-1]!=1) {
-	   recRouge(a,b-1,p);}
-	}  if (p[b+t-1]==1) {
-	   if (a[b+t-1]!=1) {
-	   recRouge(a,b+t-1,p);}
-	} 
-} else {
-	if (p[b-t]==1) {
-	   if (a[b-t]!=1) {
-	   recRouge(a,b-t,p);}
-	}  if (p[b+t]==1) {
-	   if (a[b+t]!=1) {
-	   recRouge(a,b+t,p);}
-	 } if (p[b-1]==1) {
-	   if (a[b-1]!=1) {
-	   recRouge(a,b-1,p);}
-	} if (p[b+t-1]==1) {
-	   if (a[b+t-1]!=1) {
-	   recRouge(a,b+t-1,p);}
-	}  if (p[b+1-t]==1) {
-	   if (a[b+1-t]!=1) {
-	   recRouge(a,b+1-t,p);}
-	}  if (p[b+1]==1) {
-	   if (a[b+1]!=1) {
-	   recRouge(a,b+1,p);}
-	
-}
-}
-}
-}
-};
-
-void recBleu(int a[120],int b,int p[120]) {
-if (p[b]==-1) { // on ne regarde pas les cases qui ne sont pas pour le bon joueur
-a[b]=1;   
-if (b%t==0) { // division entiere, on est sur la premiere ligne
-      if (b==0) { // case tout à gauche
-            if (p[1]==-1) {
-	    if (a[1]!=1) {
-	    recBleu(a,1,p);}
-	    }
-             if (p[t]==-1) {
-	    if (a[t]!=1) {
-	    recBleu(a,t,p);}
-	} }else if (b==t*(t-1)) {
-	if (p[b-t]==-1) {
-	   if (a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	}  if (p[b-t+1]==-1) {
-	   if (a[b-t+1]!=1) {
-	   recBleu(a,b-t+1,p);}
-	}  if (p[b+1]==-1) {
-	   if (a[b+1]!=1) {
-	   recBleu(a,b+1,p);}
-	} 
-	}else {
-if (p[b-t]==-1) {
-	   if (a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	}  if (p[b-t+1]==-1) {
-	   if (a[b-t+1]!=1) {
-	   recBleu(a,b-t+1,p);}
-	}  if (p[b+1]==-1) {
-	   if (a[b+1]!=1) {
-	   recBleu(a,b+1,p);}
-	  }if (p[b+t]==-1) {
-	   if (a[b+t]!=1) {
-	   recBleu(a,b+t,p);}
-	} 
-
-}
+	   parcours(j,p,a,b-t+1); }
+	}
 } else if (b%t==t-1) {
-      if (b==t-1) { // case tout à gauche
-      	 if (p[b-1]==-1) {
-	    if (a[b-1]!=1) {
-	    recBleu(a,b-1,p);}
-	    }
-	  if (p[b+t]==-1) {
-	    if (a[b+t]!=1) {
-	    recBleu(a,b+t,p);}
-	  } if (p[b+t-1]==-1) {
-	    if (a[b+t-1]!=1) {
-	    recBleu(a,b+t-1,p);}
-	  } 
-	}else if (b==t*t-1) {
-	if (p[b-t]==-1) {
+	if (p[b-t]==j) {
 	   if (a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	  }if (p[b-1]==-1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b-1]==j) {
 	   if (a[b-1]!=1) {
-	   recBleu(a,b-1,p);}
-	} 
-	}else {
-if (p[b-t]==-1) {
-	  if ( a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	 } if (p[b-1]==-1) {
+	
+	   parcours(j,p,a,b-1);}
+	}
+} else { 
+	if (p[b-1]==j) {
 	   if (a[b-1]!=1) {
-	   recBleu(a,b-1,p);}
-	}   if (p[b+t-1]==-1) {
-	   if (a[b+t-1]!=1) {
-	   recBleu(a,b+t-1,p);}
-	}  if (p[b+t]==-1) {
-	   if (a[b+t]!=1) {
-	   recBleu(a,b+t,p);}
-	} 
-
-}
-
-} else {
-	if (b/t==0) {
-	 if (p[b+t]==-1) {
-	   if (a[b+t]!=1) {
-	   recBleu(a,b+t,p);}
-	}  if (p[b+t-1]==-1) {
-	   if (a[b+t-1]!=1) {
-	   recBleu(a,b+t-1,p);}
-	} if (p[b-1]==-1) {
-	   if (a[b-1]!=1) {
-	   recBleu(a,b-1,p);}
-	} if (p[b+1]==-1) {
-	   if (a[b+1]!=1) {
-	   recBleu(a,b+1,p);}
-	}} else if (b/t==t-1) {
-	 if (p[b-t]==-1) {
+	
+	   parcours(j,p,a,b-1);}
+	}
+	if (p[b-t]==j) {
 	   if (a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	} if (p[b-1]==-1) {
-	   if (a[b-1]!=1) {
-	   recBleu(a,b-1,p);}
-	} if (p[b+1]==-1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b+1]==j) {
 	   if (a[b+1]!=1) {
-	   recBleu(a,b+1,p);}
-	}  if (p[b-t+1]==-1) {
-	   if (a[b-t+1]!=1) {
-	   recBleu(a,b-t+1,p);}
+	
+	   parcours(j,p,a,b+1);}
+	}  if (p[b+1-t]==j) {
+	   if (a[b+1-t]!=1) {
+	   parcours(j,p,a,b+1-t); }
+	}	
+} } else {
+	if (b%t==0) {
+	 if (p[b-t]==j) {
+	   if (a[b-t]!=1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b+t]==j) {
+	   if (a[b+t]!=1) {
+	
+	   parcours(j,p,a,b+t);}
+	}  if (p[b+1-t]==j) {
+	   if (a[b+1-t]!=1) {
+	   parcours(j,p,a,b+1-t); }
+	}  if (p[b+1]==j) {
+	   if (a[b+1]!=1) {
+	   parcours(j,p,a,b+1);}
+	}} else if (b%t==t-1) {
+	 if (p[b-t]==j) {
+	   if (a[b-t]!=1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b+t]==j) {
+	   if (a[b+t]!=1) {
+	   parcours(j,p,a,b+t);}
+	 } if (p[b-1]==j) {
+	   if (a[b-1]!=1) {
+	   parcours(j,p,a,b-1);}
+	}  if (p[b+t-1]==j) {
+	   if (a[b+t-1]!=1) {
+	   parcours(j,p,a,b+t-1);}
 	} 
 } else {
-	if (p[b+t]==-1) {
-	   if (a[b+t]!=1) {
-	   recBleu(a,b+t,p);}
-	} if (p[b-t]==-1) {
+	if (p[b-t]==j) {
 	   if (a[b-t]!=1) {
-	   recBleu(a,b-t,p);}
-	} if (p[b-t+1]==-1) {
-	   if (a[b-t+1]!=1) {
-	   recBleu(a,b-t+1,p);}
-	} if (p[b+t-1]==-1) {
-	   if (a[b+t-1]!=1) {
-	   recBleu(a,b+t-1,p);}
-	}  if (p[b-1]==-1) {
+	   parcours(j,p,a,b-t);}
+	}  if (p[b+t]==j) {
+	   if (a[b+t]!=1) {
+	   parcours(j,p,a,b+t);}
+	 } if (p[b-1]==j) {
 	   if (a[b-1]!=1) {
-	   recBleu(a,b-1,p);}
-	}  if (p[b+1]==-1) {
+	   parcours(j,p,a,b-1);}
+	} if (p[b+t-1]==j) {
+	   if (a[b+t-1]!=1) {
+	   parcours(j,p,a,b+t-1);}
+	}  if (p[b+1-t]==j) {
+	   if (a[b+1-t]!=1) {
+	   parcours(j,p,a,b+1-t);}
+	}  if (p[b+1]==j) {
 	   if (a[b+1]!=1) {
-	   recBleu(a,b+1,p);}
+	   parcours(j,p,a,b+1);}
+	
 }
 }
 }
 }
 };
 
-int finPartie(char *joueuractuel, int p[120]) { // retourne 1 si la partie est finie, 0 sinon , et t la taille du plateau sur lequel on joue
-/*int j=0;
-if (joueuractuel=="bleu") {
-	j=-1;
-}
-if (joueuractuel=="rouge") {
+int finPartie(char *joueuractuel, int p[121]) { // retourne 1 si la partie est finie, 0 sinon , et t la taille du plateau sur lequel on joue
+int j=0;
+if (strcmp(joueuractuel,"bleu")) {
 	j=1;
 }
-*/
+if (strcmp(joueuractuel,"rouge")) {
+	j=-1;
+}
 
-int a[120];
+
+int a[121];
 int b=0;
-int c[120];
+int c[121];
 int i;
 for (i=0;i<120;i++) {
 a[i]=0;
+c[i]=0;
 
 }
-//  if (j==1) {
+  if (j==-1) {
     for (i=0;i<t;i++) {
-        recBleu(a,i,p);
+        parcours(j,p,a,i);
     }
     for (i=0;i<t;i++) {
         if (a[t*(t-1)+i]==1) {
         b=1;
         }
     }
-//  } else {
+  } else {
     for (i=0;i<t;i++) {
-      recRouge(c,t*i,p);
+      parcours(j,p,c,t*i);
     }
     for (i=0;i<t;i++) {
         if (c[t-1+t*i]==1) {
         b=1;
         }
-//    }
+    }
   }
   return b;
 
