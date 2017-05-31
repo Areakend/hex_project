@@ -174,6 +174,10 @@ int main() {
 																		SDL_Flip(screen); // Mise à jour de l'écran
 																		run3 = 0;
 																		break;
+/*// DEBUT NOUVELLES TOUCHES
+																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
+																	case SDLK_SPACE: // Appui sur espace, règle du gâteau
+*/// FIN NOUVELLES TOUCHES
 																	default:;
 																}
 																break;
