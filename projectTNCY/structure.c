@@ -231,7 +231,7 @@ c[i]=0;
   }
   return b;
 
-}; // segmentation fault pour l'instant
+};
 
 int regledugateau () {
   return 0;

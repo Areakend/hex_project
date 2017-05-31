@@ -1,6 +1,5 @@
 //Les fichiers d'entete
 #include "all.h"
-
 int main() {
 	//Les attributs de l'ecran (1056 * 594)
 	const int SCREEN_WIDTH = 1056;
@@ -12,8 +11,7 @@ int main() {
 	int run3 = 1;
 
 	int gagner = 0;
-
-	premiercoup = 0;
+	int z = 1;
 
 	int i;
 	int clicx =0;
@@ -154,6 +152,7 @@ int main() {
 													run2 = 0;
 												}
 												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 40 && event.button.y <= 100 ) { // Touche Violet
+													premiercoup = 0;
 													joueuractuel="bleu";
 													for (i=0;i<121;i++) {
 														p[i]=0;
@@ -241,6 +240,7 @@ int main() {
 
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche VS IA
+									premiercoup = 0;									
 									joueuractuel="bleu";
 									for (i=0;i<121;i++) {
 										p[i]=0;
@@ -252,7 +252,7 @@ int main() {
 									SDL_Flip(screen); // Mise à jour de l'écran
 									//Tant qu'il y a un événement à traiter 
 									while( run1 && run2 && run3 ) {
-										SDL_PollEvent( &event );
+										SDL_WaitEvent( &event );
 										switch(event.type) {
 											case SDL_KEYDOWN:
 												switch (event.key.keysym.sym) {
@@ -320,7 +320,7 @@ int main() {
 													}
 												}
 												gagner=finPartie(joueuractuel, p);
-												if (gagner==1) {
+												if (gagner==1 && z==0) {
 													if (strcmp(joueuractuel,"rouge") == 0) {
 														menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
@@ -340,17 +340,18 @@ int main() {
 														break;
 													}
 												}
-
 												if (modif ==1) {
 													if (strcmp(joueuractuel,"rouge")==0) {
 														menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														joueuractuel="bleu";
+														z=0;
 													}
 													else {
 														menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														joueuractuel="rouge";
+														z=0;
 													}
 												}
 
