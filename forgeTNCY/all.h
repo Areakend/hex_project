@@ -21,7 +21,6 @@ typedef struct {
 
 // main.c
 int main();
-char *changeplayer(char* joueuractuel);
 
 // ajouter.c
 int addcase(int pos, SDL_Surface *screen, char* joueuractuel);

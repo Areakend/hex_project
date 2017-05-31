@@ -2,21 +2,20 @@
 # make all : nettoie le dossier puis compile
 # make project : compile le projet
 # make mrpropre : supprime les *.o
-# make clean : nettoie le dossier 
 
 
-# Variable contenant les *.c
-CFILES = main.c
-# Variable contenant les *.h
-HFILES = main.h
+CC = gcc
+CFLAGS = -Wall -Wextra
+LDFLAGS = -lSDL -lSDLmain -LSDL_image
+EXEC = project
 
-all: clean project
+all : clean $(EXEC)
 
-project: files
-	gcc -o project main.o -lSDL -lSDL_image `sdl-config --libs`
+$(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-files: $(CFILES) $(HFILES)
-	gcc -c -Wall -Wextra $(CFILES) `sdl-config --cflags`
+%.o : %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	rm -rf project *.o

@@ -5,7 +5,17 @@ const int t=11;
 int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON REND 1 SI LE COUP A PU ETRE JOUE, 0 SINON, a doit etre compris entre 0 et 120
   int modif = 0;
   int recherche = 0;
-	
+  while (pile[recherche]!=0) {
+	recherche++;
+  }
+  if (a==120) {
+	a=pile[recherche-1];
+	p[recherche-1]=0;
+  	modif = addcase(a, screen, "rouge");
+	p[recherche]=0;
+	return 0;
+  }
+
   if (a==0 && premiercoup==0) {
 	  if (strcmp(j,"rouge")==0) {
 			modif=addcase(a, screen, j);
@@ -37,11 +47,9 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   if (a==0) {
 	a=-1;
   }
-  while (pile[recherche]!=0) {
-	recherche++;
-  }
+
   if (modif == 1) {
-	pile[recherche]=a;
+	pile[recherche+1]=a;
   }
   return modif;
 };
