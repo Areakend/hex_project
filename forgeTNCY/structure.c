@@ -1,29 +1,35 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "SDL/SDL.h"
-#include "structure.h"
-
-
+#include "all.h"
 
 const int t=11;
 
 int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON REND 1 SI LE COUP A PU ETRE JOUE, 0 SINON, a doit etre compris entre 0 et 120
   int modif = 0;
   int recherche = 0;
-  if (j=="rouge") {
+	
+  if (a==0 && premiercoup==0) {
+	  if (strcmp(j,"rouge")==0) {
+			modif=addcase(a, screen, j);
+			premiercoup=1;
+  	  }
+	  if (strcmp(j,"bleu")==0) {
+			modif=addcase(a, screen, j);
+			premiercoup=1;
+  	  }
+  }
+
+  if (strcmp(j,"rouge")==0) {
     if (p[a-1]==0) {
-	modif=addcase(a, screen, j);
-	if (modif=1) {
+	modif = addcase(a, screen, j);
+	if (modif==1) {
 		p[a-1]=1;
 	}
     }
   }
 
-  if (j=="bleu") {
+  if (strcmp(j,"bleu")==0) {
     if (p[a-1]==0) {
 	modif=addcase(a, screen, j);
-	if (modif=1) {
+	if (modif==1) {
 		p[a-1]=-1;
 	}
     }
@@ -31,7 +37,6 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   if (a==0) {
 	a=-1;
   }
-
   while (pile[recherche]!=0) {
 	recherche++;
   }
@@ -266,43 +271,45 @@ if (p[b-t]==-1) {
 }
 }
 }
-}else { a[b]=1;}
+}
 };
 
 int finPartie(char *joueuractuel, int p[120]) { // retourne 1 si la partie est finie, 0 sinon , et t la taille du plateau sur lequel on joue
-int j=0;
+/*int j=0;
 if (joueuractuel=="bleu") {
 	j=-1;
 }
 if (joueuractuel=="rouge") {
 	j=1;
 }
+*/
 
 int a[120];
 int b=0;
+int c[120];
 int i;
 for (i=0;i<120;i++) {
 a[i]=0;
 
 }
-  if (j==-1) {
+//  if (j==1) {
     for (i=0;i<t;i++) {
-        recBleu(a,t*i,p);
-    }
-    for (i=0;i<t;i++) {
-        if (a[t-1+t*i]==1) {
-        b=1;
-        }
-    }
-  } else {
-    for (i=0;i<t;i++) {
-      recRouge(a,i,p);
+        recBleu(a,i,p);
     }
     for (i=0;i<t;i++) {
         if (a[t*(t-1)+i]==1) {
         b=1;
         }
     }
+//  } else {
+    for (i=0;i<t;i++) {
+      recRouge(c,t*i,p);
+    }
+    for (i=0;i<t;i++) {
+        if (c[t-1+t*i]==1) {
+        b=1;
+        }
+//    }
   }
   return b;
 

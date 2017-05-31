@@ -4,18 +4,18 @@
 # make mrpropre : supprime les *.o
 
 
-# Variable contenant les *.c
-CFILES = main.c alloc.c image.c position.c ajouter.c structure.c IAsimple.c
-# Variable contenant les *.h
-HFILES = main.h alloc.h image.h position.h ajouter.h structure.h IAsimple.h
+CC = gcc
+CFLAGS = -Wall -Wextra
+LDFLAGS = -lSDL -lSDLmain -LSDL_image
+EXEC = project
 
-all: clean project
+all : clean $(EXEC)
 
-project: files
-	gcc -o project main.o -lSDL -lSDL_image `sdl-config --libs`
+$(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-files: $(CFILES) $(HFILES)
-	gcc -c -Wall -Wextra $(CFILES) `sdl-config --cflags`
+%.o : %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	rm -rf project *.o

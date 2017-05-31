@@ -1,6 +1,4 @@
-//Les fichiers d'entete
-#include <stdlib.h>
-#include <stdio.h>
+#include "all.h"
 
 void free_data(int ***data, size_t xlen, size_t ylen)
 {

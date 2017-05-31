@@ -1,13 +1,8 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "SDL/SDL.h"
-
-
-
+#include "all.h"
 
 void tab (int ***pixel) {
-int x0 = 90 + 48;
-int y0 = 90 + 56;
+int x0 = 14 + 48;
+int y0 = 100 + 56;
 int k =0;
 int j=0;
 int z=0;

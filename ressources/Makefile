@@ -2,6 +2,7 @@
 # make all : nettoie le dossier puis compile
 # make project : compile le projet
 # make mrpropre : supprime les *.o
+# make clean : nettoie le dossier 
 
 
 # Variable contenant les *.c
