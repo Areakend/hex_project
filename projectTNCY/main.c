@@ -99,7 +99,7 @@ int main() {
 				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
 					run1 = 0;
 				}
-				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 + 30 ) { // Touche nouveau jeu
+				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 ) { // Touche nouveau jeu
 					menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 					SDL_Flip(screen); // Mise à jour de l'écran
@@ -122,7 +122,7 @@ int main() {
 								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
 									run1 = 0;
 								}
-								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 40 && event.button.y <= SCREEN_HEIGHT / 8 + 40 ) { // Touche 1VS1
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 20 && event.button.y <= SCREEN_HEIGHT / 8 + 20 ) { // Touche 1VS1
 									menu = SDL_LoadBMP( "menu/colorMenu.bmp" );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
@@ -145,7 +145,7 @@ int main() {
 												if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
 													run1 = 0;
 												}
-												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
+												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 10 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
 													menu = SDL_LoadBMP( "menu/startMenu.bmp" );
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
@@ -164,15 +164,15 @@ int main() {
 													SDL_Flip(screen); // Mise à jour de l'écran
 													// Partie jeu 
 													while( run1 && run2 && run3 ) {
-														SDL_PollEvent( &event );
+														SDL_WaitEvent( &event );
 														switch(event.type) {
 															case SDL_KEYDOWN:
 																switch (event.key.keysym.sym) {
 																	case SDLK_ESCAPE: // Appui sur la touche Echap, on fait un retour
-																		menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+																		menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
 																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																		SDL_Flip(screen); // Mise à jour de l'écran
-																		run2 = 0;
+																		run3 = 0;
 																		break;
 																	default:;
 																}
@@ -231,7 +231,86 @@ int main() {
 														}
 													}
 												}
-												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Orange
+												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche Orange
+													premiercoup = 0;
+													joueuractuel="rouge";
+													for (i=0;i<121;i++) {
+														p[i]=0;
+													}
+													//Application des surfaces sur l'ecran
+													menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+													apply_surface( 14, 100, plateau, screen );
+													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+													SDL_Flip(screen); // Mise à jour de l'écran
+													// Partie jeu 
+													while( run1 && run2 && run3 ) {
+														SDL_WaitEvent( &event );
+														switch(event.type) {
+															case SDL_KEYDOWN:
+																switch (event.key.keysym.sym) {
+																	case SDLK_ESCAPE: // Appui sur la touche Echap, on fait un retour
+																		menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
+																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																		SDL_Flip(screen); // Mise à jour de l'écran
+																		run3 = 0;
+																		break;
+																	default:;
+																}
+																break;
+															//Si l'utilisateur clique
+															case SDL_MOUSEBUTTONUP:
+																clicx = event.button.x;
+																clicy = event.button.y;
+																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
+																gagner=finPartie(joueuractuel, p);
+																if (gagner==1) {
+																	if (strcmp(joueuractuel,"rouge") == 0) {
+																		menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
+																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																		SDL_Flip(screen); // Mise à jour de l'écran
+																		printf("VICTOIRE \n");
+																		run2 = 0;
+																		gagner = 0;
+																		break;
+																	}
+																	if (strcmp(joueuractuel,"bleu") == 0) {
+																		menu = SDL_LoadBMP( "menu/violetWins.bmp" );
+																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																		SDL_Flip(screen); // Mise à jour de l'écran
+																		printf("VICTOIRE \n");
+																		run2 = 0;
+																		gagner = 0;
+																		break;
+																	}
+																}
+																if (modif ==1) {
+																	if (strcmp(joueuractuel,"rouge")==0) {
+																		menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
+																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																		joueuractuel="bleu";
+																	}
+																	else {
+																		menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																		joueuractuel="rouge";
+																	}
+																}
+																else if ( clicx >= 3 * SCREEN_WIDTH / 4 - 60  && clicx <= 3 * SCREEN_WIDTH / 2 + 60 && clicy >= SCREEN_HEIGHT / 4 - 60 && clicy <= SCREEN_HEIGHT / 4 + 30  ) { //Touche nouvelle partie
+																	menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
+																	SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																	SDL_Flip(screen); // Mise à jour de l'écran
+																	run3 = 0;
+																	break;
+																}
+																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+																	run1 = 0;
+																}
+																SDL_Flip( screen );
+																modif=0;
+																break;
+														}
+													}
+
 												}
 												break;
 										}
@@ -257,10 +336,10 @@ int main() {
 											case SDL_KEYDOWN:
 												switch (event.key.keysym.sym) {
 													case SDLK_ESCAPE: // Appui sur la touche Echap, on fait un retour
-														menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+														menu = SDL_LoadBMP( "menu/VersusMenu.bmp" );
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
-														run2 = 0;
+														run3 = 0;
 														break;
 													default:;
 												}
@@ -277,7 +356,7 @@ int main() {
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
 														printf("VICTOIRE \n");
-														run3 = 0;
+														run2 = 0;
 														gagner = 0;
 														break;
 													}
@@ -286,7 +365,7 @@ int main() {
 														SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 														SDL_Flip(screen); // Mise à jour de l'écran
 														printf("VICTOIRE \n");
-														run3 = 0;
+														run2 = 0;
 														gagner = 0;
 														break;
 													}
@@ -304,7 +383,7 @@ int main() {
 														joueuractuel="rouge";
 													}
 												}
-												else if ( clicx >= 3 * SCREEN_WIDTH / 4 - 60  && clicx <= 3 * SCREEN_WIDTH / 2 + 60 && clicy >= SCREEN_HEIGHT / 4 - 60 && clicy <= SCREEN_HEIGHT / 4 - 15  ) { //Touche nouvelle partie
+												else if ( clicx >= 3 * SCREEN_WIDTH / 4 - 60  && clicx <= 3 * SCREEN_WIDTH / 2 + 60 && clicy >= SCREEN_HEIGHT / 4 - 60 && clicy <= SCREEN_HEIGHT / 4 + 30  ) { //Touche nouvelle partie
 													menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
@@ -362,7 +441,7 @@ int main() {
 									}
 								}
 
-								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 10 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
 									menu = SDL_LoadBMP( "menu/startMenu.bmp" );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
