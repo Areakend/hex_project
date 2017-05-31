@@ -10,9 +10,9 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   }
   if (a==120) {
 	a=pile[recherche-1];
-	p[recherche-1]=0;
-  	modif = addcase(a, screen, "rouge");
-	p[recherche]=0;
+	p[a]=0;
+  	modif = addcase(a, screen, "blanc");
+	p[a]=0;
 	return 0;
   }
 
