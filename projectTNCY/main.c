@@ -163,7 +163,7 @@ int main() {
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
 													//Tant qu'il y a un événement à traiter 
-													while( run2 && run3 ) {
+													while( run1 && run2 && run3 ) {
 														if (gagner==1) {
 															if (strcmp(joueuractuel,"rouge") == 0) {
 																menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
@@ -220,6 +220,9 @@ int main() {
 																	SDL_Flip(screen); // Mise à jour de l'écran
 																	run3 = 0;
 																	break;
+																}
+																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+																	run1 = 0;
 																}
 																SDL_Flip( screen );
 																gagner=finPartie(joueuractuel, p);
