@@ -96,7 +96,7 @@ int main() {
 				}
             			break;
 			case SDL_MOUSEBUTTONUP:
-				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 					run1 = 0;
 				}
 				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 ) { // Touche nouveau jeu
@@ -119,7 +119,7 @@ int main() {
 								}
             							break;
 							case SDL_MOUSEBUTTONUP:
-								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 									run1 = 0;
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 20 && event.button.y <= SCREEN_HEIGHT / 8 + 20 ) { // Touche 1VS1
@@ -142,7 +142,7 @@ int main() {
 												}
             											break;
 											case SDL_MOUSEBUTTONUP:
-												if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+												if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 													run1 = 0;
 												}
 												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 10 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
@@ -174,10 +174,26 @@ int main() {
 																		SDL_Flip(screen); // Mise à jour de l'écran
 																		run3 = 0;
 																		break;
-/*// DEBUT NOUVELLES TOUCHES
+// DEBUT NOUVELLES TOUCHES
 																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
-																	case SDLK_SPACE: // Appui sur espace, règle du gâteau
-*/// FIN NOUVELLES TOUCHES
+																		modif = ajouterpiece(140, p, joueuractuel, screen, pile);
+																		if (modif == 2) {
+																			if (strcmp(joueuractuel,"rouge")==0) {
+																				menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
+																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																				joueuractuel="bleu";
+																			}
+																			else {
+																				menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																				joueuractuel="rouge";
+																			}
+																			SDL_Flip(screen); // Mise à jour de l'écran
+																		}
+																		modif = 0;
+																		break;
+																	//case SDLK_SPACE: // Appui sur espace, règle du gâteau
+// FIN NOUVELLES TOUCHES
 																	default:;
 																}
 																break;
@@ -226,7 +242,7 @@ int main() {
 																	run3 = 0;
 																	break;
 																}
-																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 																	run1 = 0;
 																}
 																SDL_Flip( screen );
@@ -306,7 +322,7 @@ int main() {
 																	run3 = 0;
 																	break;
 																}
-																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+																else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 																	run1 = 0;
 																}
 																SDL_Flip( screen );
@@ -394,7 +410,7 @@ int main() {
 													run3 = 0;
 													break;
 												}
-												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 + 40 ) { // Touche quitter
+												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 													run1 = 0;
 												}
 												if (strcmp(joueuractuel, "bleu")) {

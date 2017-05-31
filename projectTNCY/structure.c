@@ -8,12 +8,12 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   while (pile[recherche]!=0) {
 	recherche++;
   }
-  if (a==120) {
+  if (a==140 && recherche != 0) {
 	a=pile[recherche-1];
 	p[a]=0;
   	modif = addcase(a, screen, "blanc");
 	p[a]=0;
-	return 0;
+	return 2;
   }
 
   if (a==0 && premiercoup==0) {
