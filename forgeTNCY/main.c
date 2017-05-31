@@ -1,17 +1,5 @@
 //Les fichiers d'entete
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "main.h"
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "image.c"
-#include "position.c"
-#include "alloc.c"
-#include "ajouter.c"
-#include "IAsimple.c"
-#include "structure.h"
-
+#include "all.h"
 
 int main() {
 	//Les attributs de l'ecran (1056 * 594)
@@ -24,6 +12,8 @@ int main() {
 	int run3 = 1;
 
 	int gagner = 0;
+
+	premiercoup = 0;
 
 int IA = 1; // A SUPPRIMER
 
@@ -76,7 +66,7 @@ int IA = 1; // A SUPPRIMER
 	//Chargement des images
 	plateau = load_image( "plateau.bmp" );
 	background = load_image( "background.bmp" );
-	menu = IMG_Load( "menu/startMenu.png" );
+	menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 	
 	// Placement de la surface menu
 	SDL_Rect menuPosition;
@@ -111,7 +101,7 @@ int IA = 1; // A SUPPRIMER
 					run1 = 0;
 				}
 				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 + 30 ) { // Touche nouveau jeu
-					menu = IMG_Load( "menu/versusMenu.png" );
+					menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 					apply_surface( 0, 0, background, screen );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 					SDL_Flip(screen); // Mise à jour de l'écran
@@ -121,7 +111,7 @@ int IA = 1; // A SUPPRIMER
             						case SDL_KEYDOWN:
 								switch (event.key.keysym.sym) {
 									case SDLK_ESCAPE: // Appui sur la touche Echap, on arrête le programme
-									menu = IMG_Load( "menu/startMenu.png" );
+									menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 									apply_surface( 0, 0, background, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
@@ -136,7 +126,7 @@ int IA = 1; // A SUPPRIMER
 									run1 = 0;
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 8 - 40 && event.button.y <= SCREEN_HEIGHT / 8 + 40 ) { // Touche 1VS1
-									menu = IMG_Load( "menu/colorMenu.png" );
+									menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 									apply_surface( 0, 0, background, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
@@ -163,7 +153,7 @@ int IA = 1; // A SUPPRIMER
 					
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
-									menu = IMG_Load( "menu/startMenu.png" );
+									menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
 									apply_surface( 0, 0, background, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran

@@ -1,9 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "SDL/SDL.h"
-
-
-
+#include "all.h"
 
 void tab (int ***pixel) {
 int x0 = 14 + 48;

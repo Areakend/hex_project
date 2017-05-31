@@ -1,9 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "SDL/SDL.h"
-#include "structure.c"
-#include "IAsimple.h"
+#include "all.h"
 
 int IAS(int *p, int *pile, SDL_Surface *screen, char* joueuractuel) {
 	int last_case = 0;

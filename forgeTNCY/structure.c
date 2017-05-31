@@ -1,10 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "SDL/SDL.h"
-#include "structure.h"
-
-
+#include "all.h"
 
 const int t=11;
 
@@ -25,7 +19,7 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
 
   if (strcmp(j,"rouge")==0) {
     if (p[a-1]==0) {
-	modif=addcase(a, screen, j);
+	modif = addcase(a, screen, j);
 	if (modif==1) {
 		p[a-1]=1;
 	}

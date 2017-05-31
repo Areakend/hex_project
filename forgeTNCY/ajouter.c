@@ -1,10 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "image.h"
-#include "ajouter.h"
-#include <string.h>
+#include "all.h"
 
 //Les surfaces des hexagones
 SDL_Surface *case0 =NULL;
