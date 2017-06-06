@@ -13,6 +13,7 @@ int main() {
 	int gagner = 0;
 	int annuler = 0;
 	int bugZ = 1;
+	int temp = 0;
 
 	int i;
 	int clicx =0;
@@ -157,6 +158,7 @@ int main() {
 													joueuractuel="bleu";
 													for (i=0;i<121;i++) {
 														p[i]=0;
+														pile[i]=0;
 													}
 													//Application des surfaces sur l'ecran
 													menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
@@ -177,8 +179,35 @@ int main() {
 																		break;
 // DEBUT NOUVELLES TOUCHES
 																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
-																		modif = ajouterpiece(140, p, joueuractuel, screen, pile);
-																		if (modif == 2 && annuler ) {
+																		if (annuler && (premiercoup==1 || premiercoup > 2) ) {
+																			modif = ajouterpiece(140, p, joueuractuel, screen, pile);
+																			if (modif == 2) {
+																				if (strcmp(joueuractuel,"rouge")==0) {
+																					menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
+																					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																					joueuractuel="bleu";
+																				}
+																				else {
+																					menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+																					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																					joueuractuel="rouge";
+																				}
+																				SDL_Flip(screen); // Mise à jour de l'écran
+																				annuler=0;
+																			}
+																			modif = 0;
+																			premiercoup--;
+																		}
+																		break;
+																	case SDLK_SPACE: // Appui sur espace, règle du gâteau
+																		if (premiercoup==1) {
+																			//On cherche la premiere case
+																			temp = pile[0];
+																			//On l'annule
+																			ajouterpiece(140, p, joueuractuel, screen, pile);
+																			//On pose la case de l'autre couleur
+																			ajouterpiece(temp, p, joueuractuel, screen, pile);
+																			//Changement de joueur
 																			if (strcmp(joueuractuel,"rouge")==0) {
 																				menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
 																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
@@ -189,13 +218,11 @@ int main() {
 																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																				joueuractuel="rouge";
 																			}
-																			SDL_Flip(screen); // Mise à jour de l'écran
-																			annuler=0;
+																			premiercoup++;
 																		}
-																		modif = 0;
+																		SDL_Flip(screen);
 																		break;
-																	//case SDLK_SPACE: // Appui sur espace, règle du gâteau
-// FIN NOUVELLES TOUCHES
+																	// FIN NOUVELLES TOUCHES
 																	default:;
 																}
 																break;
@@ -205,6 +232,7 @@ int main() {
 																clicy = event.button.y;
 																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 																gagner=finPartie(joueuractuel, p);
+																premiercoup++;
 																if (gagner==1) {
 																	if (strcmp(joueuractuel,"rouge") == 0) {
 																		menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
@@ -255,7 +283,7 @@ int main() {
 													}
 												}
 												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche Orange
-													premiercoup = 0;
+													premiercoup = 1;
 													joueuractuel="rouge";
 													for (i=0;i<121;i++) {
 														p[i]=0;
@@ -343,7 +371,7 @@ int main() {
 
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche VS IA
-									premiercoup = 0;									
+									premiercoup = 1;									
 									joueuractuel="bleu";
 									for (i=0;i<121;i++) {
 										p[i]=0;

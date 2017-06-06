@@ -8,31 +8,22 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   while (pile[recherche]!=0) {
 	recherche++;
   }
-  if (a==140 && recherche != 0) {
-	a=pile[recherche-1];
+
+  if (a==140) {
+   	a=pile[recherche-1];
 	p[a]=0;
   	modif = addcase(a, screen, "blanc");
 	p[a]=0;
+	pile[recherche-1]=0;
 	return 2;
   }
-
-  if (a==0 && premiercoup==0) {
-	  if (strcmp(j,"rouge")==0) {
-			modif=addcase(a, screen, j);
-			premiercoup=1;
-  	  }
-	  if (strcmp(j,"bleu")==0) {
-			modif=addcase(a, screen, j);
-			premiercoup=1;
-  	  }
-  }
-
+  
   if (strcmp(j,"rouge")==0) {
     if (p[a]==0) {
 	modif = addcase(a, screen, j);
-	if (modif==1) {
+		if (modif==1) {
 		p[a]=1;
-	}
+		}
     }
   }
 

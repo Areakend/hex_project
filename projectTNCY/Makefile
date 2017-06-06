@@ -15,7 +15,7 @@ $(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o : %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -c $^ $(CFLAGS)
 
 clean:
 	rm -rf project *.o
