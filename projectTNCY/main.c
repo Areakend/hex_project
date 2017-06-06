@@ -53,7 +53,7 @@ int main() {
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 	Mix_AllocateChannels(32);
 	Mix_Music* music = Mix_LoadMUS("mus1.mp3");
-	Mix_PlayMusic(music, 1);
+	Mix_PlayMusic(music, -1);
 
 	// Création de la fenêtre
 	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_NOFRAME);
