@@ -11,6 +11,7 @@ int main() {
 	int run3 = 1;
 
 	int gagner = 0;
+	int annuler = 0;
 	int bugZ = 1;
 
 	int i;
@@ -177,7 +178,7 @@ int main() {
 // DEBUT NOUVELLES TOUCHES
 																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
 																		modif = ajouterpiece(140, p, joueuractuel, screen, pile);
-																		if (modif == 2) {
+																		if (modif == 2 && annuler ) {
 																			if (strcmp(joueuractuel,"rouge")==0) {
 																				menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
 																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
@@ -189,6 +190,7 @@ int main() {
 																				joueuractuel="rouge";
 																			}
 																			SDL_Flip(screen); // Mise à jour de l'écran
+																			annuler=0;
 																		}
 																		modif = 0;
 																		break;
@@ -234,6 +236,7 @@ int main() {
 																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																		joueuractuel="rouge";
 																	}
+																	annuler=1;
 																}
 																else if ( clicx >= 3 * SCREEN_WIDTH / 4 - 60  && clicx <= 3 * SCREEN_WIDTH / 2 + 60 && clicy >= SCREEN_HEIGHT / 4 - 60 && clicy <= SCREEN_HEIGHT / 4 + 30  ) { //Touche nouvelle partie
 																	menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
@@ -314,6 +317,7 @@ int main() {
 																		SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 																		joueuractuel="rouge";
 																	}
+																	annuler=1;
 																}
 																else if ( clicx >= 3 * SCREEN_WIDTH / 4 - 60  && clicx <= 3 * SCREEN_WIDTH / 2 + 60 && clicy >= SCREEN_HEIGHT / 4 - 60 && clicy <= SCREEN_HEIGHT / 4 + 30  ) { //Touche nouvelle partie
 																	menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
