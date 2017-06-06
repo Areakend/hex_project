@@ -27,8 +27,8 @@ int main() {
 	SDL_Surface *menu = NULL;
 	SDL_Surface *plateau = NULL;
 	SDL_Surface *background = NULL;
-	
-	
+
+
 	//La structure d'evenement
 	SDL_Event event;
 
@@ -39,7 +39,7 @@ int main() {
 
 	/* Initialisation de SDL.
 	SDL_INIT_VIDEO pour l'image,
-	SDL_INIT_AUDIO pour mettre une bande son, 
+	SDL_INIT_AUDIO pour mettre une bande son,
 	SDL_INIT_TIMER pour faire défiler le temps lors de la partie.
 	*/
 
@@ -82,7 +82,7 @@ int main() {
 
 
 	SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-	
+
 	SDL_Flip(screen); // Mise à jour de l'écran
 
 	while (run1) { // TANT QUE run1 ne vaut pas 0
@@ -165,7 +165,7 @@ int main() {
 													apply_surface( 14, 100, plateau, screen );
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
-													// Partie jeu 
+													// Partie jeu
 													while( run1 && run2 && run3 ) {
 														SDL_WaitEvent( &event );
 														switch(event.type) {
@@ -177,7 +177,6 @@ int main() {
 																		SDL_Flip(screen); // Mise à jour de l'écran
 																		run3 = 0;
 																		break;
-// DEBUT NOUVELLES TOUCHES
 																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
 																		if (annuler && (premiercoup==1 || premiercoup > 2) ) {
 																			modif = ajouterpiece(140, p, joueuractuel, screen, pile);
@@ -208,21 +207,13 @@ int main() {
 																			//On pose la case de l'autre couleur
 																			ajouterpiece(temp, p, joueuractuel, screen, pile);
 																			//Changement de joueur
-																			if (strcmp(joueuractuel,"rouge")==0) {
-																				menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
-																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-																				joueuractuel="bleu";
-																			}
-																			else {
-																				menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
-																				SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-																				joueuractuel="rouge";
-																			}
+																			menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
+																			SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																			joueuractuel="bleu";
 																			premiercoup++;
 																		}
 																		SDL_Flip(screen);
 																		break;
-																	// FIN NOUVELLES TOUCHES
 																	default:;
 																}
 																break;
@@ -283,17 +274,18 @@ int main() {
 													}
 												}
 												else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche Orange
-													premiercoup = 1;
+													premiercoup = 0;
 													joueuractuel="rouge";
 													for (i=0;i<121;i++) {
 														p[i]=0;
+														pile[i]=0;
 													}
 													//Application des surfaces sur l'ecran
 													menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
 													apply_surface( 14, 100, plateau, screen );
 													SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 													SDL_Flip(screen); // Mise à jour de l'écran
-													// Partie jeu 
+													// Partie jeu
 													while( run1 && run2 && run3 ) {
 														SDL_WaitEvent( &event );
 														switch(event.type) {
@@ -305,6 +297,43 @@ int main() {
 																		SDL_Flip(screen); // Mise à jour de l'écran
 																		run3 = 0;
 																		break;
+																	case SDLK_BACKSPACE: // Appui sur delete, annuler le dernier mouvement
+																		if (annuler && (premiercoup==1 || premiercoup > 2) ) {
+																			modif = ajouterpiece(140, p, joueuractuel, screen, pile);
+																			if (modif == 2) {
+																				if (strcmp(joueuractuel,"rouge")==0) {
+																					menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
+																					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																					joueuractuel="bleu";
+																				}
+																				else {
+																					menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+																					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																					joueuractuel="rouge";
+																				}
+																				SDL_Flip(screen); // Mise à jour de l'écran
+																				annuler=0;
+																			}
+																			modif = 0;
+																			premiercoup--;
+																		}
+																		break;
+																	case SDLK_SPACE: // Appui sur espace, règle du gâteau
+																		if (premiercoup==1) {
+																			//On cherche la premiere case
+																			temp = pile[0];
+																			//On l'annule
+																			ajouterpiece(140, p, joueuractuel, screen, pile);
+																			//On pose la case de l'autre couleur
+																			ajouterpiece(temp, p, joueuractuel, screen, pile);
+																			//Changement de joueur
+																			menu = SDL_LoadBMP( "menu/orangeTurn.bmp" );
+																			SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+																			joueuractuel="rouge";
+																			premiercoup++;
+																		}
+																		SDL_Flip(screen);
+																		break;
 																	default:;
 																}
 																break;
@@ -314,6 +343,7 @@ int main() {
 																clicy = event.button.y;
 																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 																gagner=finPartie(joueuractuel, p);
+																premiercoup++;
 																if (gagner==1) {
 																	if (strcmp(joueuractuel,"rouge") == 0) {
 																		menu = SDL_LoadBMP( "menu/orangeWins.bmp" );
@@ -371,7 +401,7 @@ int main() {
 
 								}
 								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 8 - 15 && event.button.y <= 2 * SCREEN_HEIGHT / 8 + 30 ) { // Touche VS IA
-									premiercoup = 1;									
+									premiercoup = 1;
 									joueuractuel="bleu";
 									for (i=0;i<121;i++) {
 										p[i]=0;
@@ -381,7 +411,7 @@ int main() {
 									apply_surface( 14, 100, plateau, screen );
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
-									//Tant qu'il y a un événement à traiter 
+									//Tant qu'il y a un événement à traiter
 									while( run1 && run2 && run3 ) {
 										SDL_WaitEvent( &event );
 										switch(event.type) {
@@ -498,16 +528,16 @@ int main() {
 									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 									SDL_Flip(screen); // Mise à jour de l'écran
 									run2 = 0;
-					
+
 								}
 
 								break;
-			
+
         					}
 					}
 				}
 				break;
-			
+
         	}
 	}
 
