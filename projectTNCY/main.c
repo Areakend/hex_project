@@ -484,6 +484,8 @@ int main() {
 	SDL_FreeSurface( plateau );
 	SDL_FreeSurface( background );
 	SDL_FreeSurface( menu );
+	free_data(pixel, 121, 450);
+	free_cases();
 
 	//On quitte sdl
 	SDL_Quit();

@@ -24,6 +24,7 @@ int main();
 
 // ajouter.c
 int addcase(int pos, SDL_Surface *screen, char* joueuractuel);
+void free_cases();
 
 // alloc.c
 void free_data(int ***data, size_t xlen, size_t ylen);

@@ -1832,3 +1832,247 @@ if (pos==120 && strcmp(joueuractuel, "blanc") == 0) {
 return modif;
 }
 
+void free_cases() {
+
+	SDL_FreeSurface( case0 );
+
+	SDL_FreeSurface( case1 );
+
+	SDL_FreeSurface( case2 );
+
+	SDL_FreeSurface( case3 );
+
+	SDL_FreeSurface( case4 );
+
+	SDL_FreeSurface( case5 );
+
+	SDL_FreeSurface( case6 );
+
+	SDL_FreeSurface( case7 );
+
+	SDL_FreeSurface( case8 );
+
+	SDL_FreeSurface( case9 );
+
+	SDL_FreeSurface( case10 );
+
+	SDL_FreeSurface( case11 );
+
+	SDL_FreeSurface( case12 );
+
+	SDL_FreeSurface( case13 );
+
+	SDL_FreeSurface( case14 );
+
+	SDL_FreeSurface( case15 );
+
+	SDL_FreeSurface( case16 );
+
+	SDL_FreeSurface( case17 );
+
+	SDL_FreeSurface( case18 );
+
+	SDL_FreeSurface( case19 );
+
+	SDL_FreeSurface( case20 );
+
+	SDL_FreeSurface( case21 );
+
+	SDL_FreeSurface( case22 );
+
+	SDL_FreeSurface( case23 );
+
+	SDL_FreeSurface( case24 );
+
+	SDL_FreeSurface( case25 );
+
+	SDL_FreeSurface( case26 );
+
+	SDL_FreeSurface( case27 );
+
+	SDL_FreeSurface( case28 );
+
+	SDL_FreeSurface( case29 );
+
+	SDL_FreeSurface( case30 );
+
+	SDL_FreeSurface( case31 );
+
+	SDL_FreeSurface( case32 );
+
+	SDL_FreeSurface( case33 );
+
+	SDL_FreeSurface( case34 );
+
+	SDL_FreeSurface( case35 );
+
+	SDL_FreeSurface( case36 );
+
+	SDL_FreeSurface( case37 );
+
+	SDL_FreeSurface( case38 );
+
+	SDL_FreeSurface( case39 );
+
+	SDL_FreeSurface( case40 );
+
+	SDL_FreeSurface( case41 );
+
+	SDL_FreeSurface( case42 );
+
+	SDL_FreeSurface( case43 );
+
+	SDL_FreeSurface( case44 );
+
+	SDL_FreeSurface( case45 );
+
+	SDL_FreeSurface( case46 );
+
+	SDL_FreeSurface( case47 );
+
+	SDL_FreeSurface( case48 );
+
+	SDL_FreeSurface( case49 );
+
+	SDL_FreeSurface( case50 );
+
+	SDL_FreeSurface( case51 );
+
+	SDL_FreeSurface( case52 );
+
+	SDL_FreeSurface( case53 );
+
+	SDL_FreeSurface( case54 );
+
+	SDL_FreeSurface( case55 );
+
+	SDL_FreeSurface( case56 );
+
+	SDL_FreeSurface( case57 );
+
+	SDL_FreeSurface( case58 );
+
+	SDL_FreeSurface( case59 );
+
+	SDL_FreeSurface( case60 );
+
+	SDL_FreeSurface( case61 );
+
+	SDL_FreeSurface( case62 );
+
+	SDL_FreeSurface( case63 );
+
+	SDL_FreeSurface( case64 );
+
+	SDL_FreeSurface( case65 );
+
+	SDL_FreeSurface( case66 );
+
+	SDL_FreeSurface( case67 );
+
+	SDL_FreeSurface( case68 );
+
+	SDL_FreeSurface( case69 );
+
+	SDL_FreeSurface( case70 );
+
+	SDL_FreeSurface( case71 );
+
+	SDL_FreeSurface( case72 );
+
+	SDL_FreeSurface( case73 );
+
+	SDL_FreeSurface( case74 );
+
+	SDL_FreeSurface( case75 );
+
+	SDL_FreeSurface( case76 );
+
+	SDL_FreeSurface( case77 );
+
+	SDL_FreeSurface( case78 );
+
+	SDL_FreeSurface( case79 );
+
+	SDL_FreeSurface( case80 );
+
+	SDL_FreeSurface( case81 );
+
+	SDL_FreeSurface( case82 );
+
+	SDL_FreeSurface( case83 );
+
+	SDL_FreeSurface( case84 );
+
+	SDL_FreeSurface( case85 );
+
+	SDL_FreeSurface( case86 );
+
+	SDL_FreeSurface( case87 );
+
+	SDL_FreeSurface( case88 );
+
+	SDL_FreeSurface( case89 );
+
+	SDL_FreeSurface( case90 );
+
+	SDL_FreeSurface( case91 );
+
+	SDL_FreeSurface( case92 );
+
+	SDL_FreeSurface( case93 );
+
+	SDL_FreeSurface( case94 );
+
+	SDL_FreeSurface( case95 );
+
+	SDL_FreeSurface( case96 );
+
+	SDL_FreeSurface( case97 );
+
+	SDL_FreeSurface( case98 );
+
+	SDL_FreeSurface( case99 );
+
+	SDL_FreeSurface( case100 );
+
+	SDL_FreeSurface( case101 );
+
+	SDL_FreeSurface( case102 );
+
+	SDL_FreeSurface( case103 );
+
+	SDL_FreeSurface( case104 );
+
+	SDL_FreeSurface( case105 );
+
+	SDL_FreeSurface( case106 );
+
+	SDL_FreeSurface( case107 );
+
+	SDL_FreeSurface( case108 );
+
+	SDL_FreeSurface( case109 );
+
+	SDL_FreeSurface( case110 );
+
+	SDL_FreeSurface( case111 );
+
+	SDL_FreeSurface( case112 );
+
+	SDL_FreeSurface( case113 );
+
+	SDL_FreeSurface( case114 );
+
+	SDL_FreeSurface( case115 );
+
+	SDL_FreeSurface( case116 );
+
+	SDL_FreeSurface( case117 );
+
+	SDL_FreeSurface( case118 );
+
+	SDL_FreeSurface( case119 );
+
+	SDL_FreeSurface( case120 );
+}
