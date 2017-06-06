@@ -1,5 +1,6 @@
 //Les fichiers d'entete
 #include "all.h"
+
 int main() {
 	//Les attributs de l'ecran (1056 * 594)
 	const int SCREEN_WIDTH = 1056;
@@ -21,7 +22,7 @@ int main() {
 	int modif =0;
 	int p[121] = { 0 };
 	int pile[121] = { 0 };
-
+	
 	//Les surfaces
 	SDL_Surface *screen = NULL;
 	SDL_Surface *menu = NULL;
@@ -48,6 +49,11 @@ int main() {
         	printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
         	exit(EXIT_FAILURE);
 	}
+	
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
+	Mix_AllocateChannels(32);
+	Mix_Music* music = Mix_LoadMUS("mus1.mp3");
+	Mix_PlayMusic(music, -1);
 
 	// Création de la fenêtre
 	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_NOFRAME);
