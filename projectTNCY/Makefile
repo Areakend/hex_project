@@ -10,6 +10,7 @@ LDFLAGS = -lSDL -lSDLmain -lSDL_mixer
 EXEC = project
 
 all : clean $(EXEC)
+	./$(EXEC)
 
 $(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o easter.o
 	$(CC) -o $@ $^ $(LDFLAGS)
