@@ -22,7 +22,7 @@ int main() {
 	int modif =0;
 	int p[121] = { 0 };
 	int pile[121] = { 0 };
-	
+
 	//Les surfaces
 	SDL_Surface *screen = NULL;
 	SDL_Surface *menu = NULL;
@@ -49,7 +49,7 @@ int main() {
         	printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
         	exit(EXIT_FAILURE);
 	}
-	
+
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 	Mix_AllocateChannels(32);
 	Mix_Music* music = Mix_LoadMUS("mus1.mp3");
@@ -107,25 +107,57 @@ int main() {
 				if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 					run1 = 0;
 				}
+				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 8 - 30 && event.button.y <= 3 * SCREEN_HEIGHT / 8 + 30 ) { // Touche credits
+					menu = SDL_LoadBMP( "menu/creditsMenu.bmp");
+					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+					SDL_Flip(screen); // Mise à jour de l'écran
+					while (run1 && run2) { // TANT QUE run2 ne vaut pas 0
+						SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
+    					switch(event.type) { // On teste le type d'événement
+    					case SDL_KEYDOWN:
+								switch (event.key.keysym.sym) {
+									case SDLK_ESCAPE: // Appui sur la touche Echap, on fait un retour
+										menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+										SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+										SDL_Flip(screen); // Mise à jour de l'écran
+										run2 = 0;
+										break;
+									default:;
+								}
+    						break;
+							case SDL_MOUSEBUTTONUP:
+								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
+									run1 = 0;
+								}
+								else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 2 * SCREEN_HEIGHT / 4 - 10 && event.button.y <= 2 * SCREEN_HEIGHT / 4 + 40 ) { // Touche Back
+									menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+									SDL_Flip(screen); // Mise à jour de l'écran
+									run2 = 0;
+								}
+								break;
+						}
+					}
+				}
 				else if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= SCREEN_HEIGHT / 4 - 60 && event.button.y <= SCREEN_HEIGHT / 4 ) { // Touche nouveau jeu
 					menu = SDL_LoadBMP( "menu/versusMenu.bmp" );
 					SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 					SDL_Flip(screen); // Mise à jour de l'écran
 					while (run1 && run2) { // TANT QUE run2 ne vaut pas 0
 						run3 = 1;
-        					SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
-        					switch(event.type) { // On teste le type d'événement
-            						case SDL_KEYDOWN:
+    				SDL_WaitEvent(&event); // On attend un événement qu'on récupère dans event
+    				switch(event.type) { // On teste le type d'événement
+    					case SDL_KEYDOWN:
 								switch (event.key.keysym.sym) {
 									case SDLK_ESCAPE: // Appui sur la touche Echap, on fait un retour
-									menu = SDL_LoadBMP( "menu/startMenu.bmp" );
-									SDL_BlitSurface(menu, NULL, screen, &menuPosition);
-									SDL_Flip(screen); // Mise à jour de l'écran
-									run2 = 0;
-									break;
-								default:;
+										menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+										SDL_BlitSurface(menu, NULL, screen, &menuPosition);
+										SDL_Flip(screen); // Mise à jour de l'écran
+										run2 = 0;
+										break;
+									default:;
 								}
-            							break;
+    						break;
 							case SDL_MOUSEBUTTONUP:
 								if (event.button.x >= 3 * SCREEN_WIDTH / 4 - 60  && event.button.x <= 3 * SCREEN_WIDTH / 2 + 60 && event.button.y >= 3 * SCREEN_HEIGHT / 4 - 40 && event.button.y <= 3 * SCREEN_HEIGHT / 4 ) { // Touche quitter
 									run1 = 0;
