@@ -30,6 +30,9 @@ void free_cases();
 void free_data(int ***data, size_t xlen, size_t ylen);
 int ***alloc_data(size_t xlen, size_t ylen, size_t zlen);
 
+// position.c
+int egg (int* p);
+
 // IAsimple.c
 int IAS(int *p, int *pile, SDL_Surface *screen, char* joueuractuel);
 

@@ -11,7 +11,7 @@ EXEC = project
 
 all : clean $(EXEC)
 
-$(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o
+$(EXEC) : ajouter.o alloc.o IAsimple.o image.o main.o position.o structure.o easter.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o : %.c

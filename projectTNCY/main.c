@@ -15,6 +15,7 @@ int main() {
 	int annuler = 0;
 	int bugZ = 1;
 	int temp = 0;
+	int eggs = 0;
 
 	int i;
 	int clicx =0;
@@ -229,6 +230,7 @@ int main() {
 																clicy = event.button.y;
 																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 																gagner=finPartie(joueuractuel, p);
+																eggs=egg(p); //Easter eggs
 																premiercoup++;
 																if (gagner==1) {
 																	if (strcmp(joueuractuel,"rouge") == 0) {
@@ -250,6 +252,10 @@ int main() {
 																		break;
 																	}
 																}
+																if (eggs==1) {
+																	Mix_Music* music = Mix_LoadMUS("easter1.mp3");
+																	Mix_PlayMusic(music, -1);
+																}																
 																if (modif ==1) {
 																	if (strcmp(joueuractuel,"rouge")==0) {
 																		menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
@@ -349,6 +355,7 @@ int main() {
 																clicy = event.button.y;
 																modif=ajouterpiece(fctpos(clicx,clicy, pixel), p, joueuractuel, screen, pile);
 																gagner=finPartie(joueuractuel, p);
+																eggs = egg(p);
 																premiercoup++;
 																if (gagner==1) {
 																	if (strcmp(joueuractuel,"rouge") == 0) {
@@ -369,6 +376,10 @@ int main() {
 																		gagner = 0;
 																		break;
 																	}
+																}
+																if (eggs==1) {
+																	Mix_Music* music = Mix_LoadMUS("easter1.mp3");
+																	Mix_PlayMusic(music, -1);
 																}
 																if (modif ==1) {
 																	if (strcmp(joueuractuel,"rouge")==0) {
@@ -458,7 +469,6 @@ int main() {
 														break;
 													}
 												}
-
 												if (modif ==1) {
 													if (strcmp(joueuractuel,"rouge")==0) {
 														menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
