@@ -38,7 +38,7 @@ int ajouterpiece(int a,int *p,char* j, SDL_Surface *screen, int *pile) { // ON R
   if (a==0) {
 	a=-1;
   }
-
+	printf("%d \n",a);
   if (modif == 1) {
 	pile[recherche]=a;
   }
