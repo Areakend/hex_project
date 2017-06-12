@@ -16,6 +16,7 @@ int main() {
 	int bugZ = 1;
 	int temp = 0;
 	int eggs = 0;
+	int x=0;
 
 	int i;
 	int clicx =0;
@@ -29,7 +30,10 @@ int main() {
 	SDL_Surface *menu = NULL;
 	SDL_Surface *plateau = NULL;
 	SDL_Surface *background = NULL;
-
+	SDL_Surface *easter_egg = NULL;
+	SDL_Surface *easter_egg2 = NULL;
+	SDL_Surface *easter_egg3 = NULL;
+	SDL_Surface *easter_eggb = NULL;
 
 	//La structure d'evenement
 	SDL_Event event;
@@ -73,9 +77,16 @@ int main() {
 	plateau = load_image( "plateau.bmp" );
 	background = load_image( "background.bmp" );
 	menu = SDL_LoadBMP( "menu/startMenu.bmp" );
+	easter_egg = SDL_LoadBMP( "easter3.bmp" );
+	easter_eggb = SDL_LoadBMP( "easter4.bmp" );
+	easter_egg2 = SDL_LoadBMP( "easter5.bmp" );
+	easter_egg3 = SDL_LoadBMP( "easter6.bmp" );
 
 	// Création de la transparence sur le pourtour du plateau
 	SDL_SetColorKey(plateau, SDL_SRCCOLORKEY, SDL_MapRGB(plateau->format, 0, 255, 0));
+	SDL_SetColorKey(easter_egg, SDL_SRCCOLORKEY, SDL_MapRGB(easter_egg->format, 0, 255, 0));
+	SDL_SetColorKey(easter_egg2, SDL_SRCCOLORKEY, SDL_MapRGB(easter_egg2->format, 0, 255, 0));
+	SDL_SetColorKey(easter_egg3, SDL_SRCCOLORKEY, SDL_MapRGB(easter_egg3->format, 0, 255, 0));
 
 	//Application des surfaces sur l'ecran
 	apply_surface( 0, 0, background, screen );
@@ -86,8 +97,22 @@ int main() {
 	menuPosition.y = 0;
 	//menuPosition.x = 667; // 3 * SCREEN_WIDTH / 4 - menu->w / 2 = 3*1056/4-250/2 ==>792
 	//menuPosition.y = 42; // SCREEN_HEIGHT / 2 - menu->h / 2 = 594/2 - 510/2 ==> 297 (250%)
+	SDL_Rect easter_eggPosition;
+	easter_eggPosition.x = 150; // SCREEN_WDTH / 2
+	easter_eggPosition.y = 150;
 
+	SDL_Rect easter_eggPosition2;
+	easter_eggPosition2.x = 400; 
+	easter_eggPosition2.y = 150;
 
+	SDL_Rect easter_eggPosition3;
+	easter_eggPosition3.x = 0; 
+	easter_eggPosition3.y = 0;
+	
+	SDL_Rect easter_eggPositionb;
+	easter_eggPositionb.x = 0; 
+	easter_eggPositionb.y = 0;
+	
 	SDL_BlitSurface(menu, NULL, screen, &menuPosition);
 
 	SDL_Flip(screen); // Mise à jour de l'écran
@@ -285,8 +310,19 @@ int main() {
 																	}
 																}
 																if (eggs==1) {
-																	Mix_Music* music = Mix_LoadMUS("easter1.mp3");
+																	Mix_Music* music = Mix_LoadMUS("easter2.mp3");
 																	Mix_PlayMusic(music, -1);
+																	for (x=0; x<440;  x++) {															
+																		easter_eggPosition.x = x*2; // SCREEN_WDTH / 2
+																		easter_eggPosition2.y = x; // SCREEN_WDTH / 2	
+																		easter_eggPosition3.x = x*2; // SCREEN_WDTH / 2
+																		easter_eggPosition3.y = x; // SCREEN_WDTH / 2	
+																		SDL_BlitSurface(easter_eggb, NULL, screen, &easter_eggPositionb);
+																		SDL_BlitSurface(easter_egg, NULL, screen, &easter_eggPosition);
+																		SDL_BlitSurface(easter_egg2, NULL, screen, &easter_eggPosition2);	
+																		SDL_BlitSurface(easter_egg3, NULL, screen, &easter_eggPosition3);															
+																		SDL_Flip(screen);												
+																	}
 																}																
 																if (modif ==1) {
 																	if (strcmp(joueuractuel,"rouge")==0) {
@@ -410,9 +446,20 @@ int main() {
 																	}
 																}
 																if (eggs==1) {
-																	Mix_Music* music = Mix_LoadMUS("easter1.mp3");
+																	Mix_Music* music = Mix_LoadMUS("easter2.mp3");
 																	Mix_PlayMusic(music, -1);
-																}
+																	for (x=0; x<440;  x++) {															
+																		easter_eggPosition.x = x*2; // SCREEN_WDTH / 2
+																		easter_eggPosition2.y = x; // SCREEN_WDTH / 2	
+																		easter_eggPosition3.x = x*2; // SCREEN_WDTH / 2
+																		easter_eggPosition3.y = x; // SCREEN_WDTH / 2	
+																		SDL_BlitSurface(easter_eggb, NULL, screen, &easter_eggPositionb);
+																		SDL_BlitSurface(easter_egg, NULL, screen, &easter_eggPosition);
+																		SDL_BlitSurface(easter_egg2, NULL, screen, &easter_eggPosition2);	
+																		SDL_BlitSurface(easter_egg3, NULL, screen, &easter_eggPosition3);															
+																		SDL_Flip(screen);												
+																	}
+																}																
 																if (modif ==1) {
 																	if (strcmp(joueuractuel,"rouge")==0) {
 																		menu = SDL_LoadBMP( "menu/violetTurn.bmp" );
